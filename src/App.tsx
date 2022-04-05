@@ -11,8 +11,8 @@ function App(): JSX.Element {
                 Edit <code>src/App.tsx</code> and save. This page will
                 automatically reload.
                 <span>Ethan Stipes</span>
-                <span>Tommy Ashfield</span>
-                <span> Harrison Littlepage</span>
+                <span> Tommy Ashfield </span>
+                <span>Harrison Littlepage</span>
             </p>
         </div>
     );
