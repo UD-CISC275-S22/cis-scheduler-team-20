@@ -20,6 +20,7 @@ function App(): JSX.Element {
                 <span>Harrison Littlepage</span>
             </p>
             <AddSemester></AddSemester>
+            <p className="semester_title">Fall (year) Semester</p>
         </div>
     );
 }
