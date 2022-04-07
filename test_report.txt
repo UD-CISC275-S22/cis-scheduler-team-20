@@ -3,7 +3,7 @@
 > react-scripts test "--coverage"
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (52 ms)
+  ✕ renders the course name somewhere (71 ms)
 
   ● renders the course name somewhere
 
@@ -15,16 +15,18 @@ FAIL src/App.test.tsx
         [36m<div[39m
           [33mclass[39m=[32m"App"[39m
         [36m>[39m
-          [36m<header[39m
-            [33mclass[39m=[32m"App-header"[39m
-          [36m>[39m
-            [36m<img[39m
-              [33malt[39m=[32m"a UD logo"[39m
-              [33mclass[39m=[32m"logo"[39m
-              [33msrc[39m=[32m"https://fanapeel.com/wp-content/uploads/logo_-university-of-delaware-fightin-blue-hens-ud.png"[39m
-            [36m/>[39m
-            [0mWelcome To The UD Degree Plan Scheduler[0m
-          [36m</header>[39m
+          [36m<div>[39m
+            [36m<header[39m
+              [33mclass[39m=[32m"App-header"[39m
+            [36m>[39m
+              [36m<img[39m
+                [33malt[39m=[32m"a UD logo"[39m
+                [33mclass[39m=[32m"logo"[39m
+                [33msrc[39m=[32m"https://fanapeel.com/wp-content/uploads/logo_-university-of-delaware-fightin-blue-hens-ud.png"[39m
+              [36m/>[39m
+              [0mWelcome To The UD Degree Plan Scheduler[0m
+            [36m</header>[39m
+          [36m</div>[39m
           [36m<p>[39m
             [0mEdit [0m
             [36m<code>[39m
@@ -88,5 +90,5 @@ All files         |   66.66 |      100 |   66.66 |   66.66 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        1.813 s
+Time:        2.459 s
 Ran all test suites.
