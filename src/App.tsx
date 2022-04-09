@@ -22,8 +22,8 @@ function App(): JSX.Element {
                 <span> Tommy Ashfield </span>
                 <span>Harrison Littlepage</span>
             </p>
-            <AddSemester></AddSemester>
             <p className="semester_title">Fall (year) Semester</p>
+            <AddSemester></AddSemester>
         </div>
     );
 }
