@@ -3,7 +3,9 @@ import { Button } from "react-bootstrap";
 
 export function AddSemester(): JSX.Element {
     const [semesters, setSemesters] = useState<ReactElement[]>([]);
+    const [num, setNum] = useState<number>(-1);
     function insertSemester(): void {
+        setNum(num + 1);
         setSemesters([
             ...semesters,
             // eslint-disable-next-line react/jsx-key
@@ -47,14 +49,26 @@ export function AddSemester(): JSX.Element {
                             <td>Not Taken</td>
                         </tr>
                     </table>
+                    <Button
+                        onClick={() =>
+                            setSemesters(
+                                semesters.filter(
+                                    (semester: ReactElement): boolean =>
+                                        semesters[num] !== semester
+                                )
+                            )
+                        }
+                    >
+                        Delete
+                    </Button>
                 </html>
             </div>
         ]);
     }
     return (
         <div>
-            <Button onClick={insertSemester}>Add Semester</Button>
             {semesters.map((semester: ReactElement) => semester)}
+            <Button onClick={insertSemester}>Add Semester</Button>
         </div>
     );
     1;
