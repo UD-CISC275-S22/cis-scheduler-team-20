@@ -3,7 +3,7 @@
 > react-scripts test "--coverage"
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (60 ms)
+  ✕ renders the course name somewhere (43 ms)
 
   ● renders the course name somewhere
 
@@ -81,14 +81,14 @@ FAIL src/App.test.tsx
 ------------------|---------|----------|---------|---------|-------------------
 File              | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ------------------|---------|----------|---------|---------|-------------------
-All files         |      50 |      100 |      50 |      50 |                   
+All files         |      40 |      100 |   33.33 |      40 |                   
  src              |     100 |      100 |     100 |     100 |                   
   App.tsx         |     100 |      100 |     100 |     100 |                   
- src/components   |      40 |      100 |   33.33 |      40 |                   
-  AddSemester.tsx |      40 |      100 |   33.33 |      40 | 7,57-60           
+ src/components   |   33.33 |      100 |      20 |   33.33 |                   
+  AddSemester.tsx |   33.33 |      100 |      20 |   33.33 | 8-57,70-74        
 ------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.596 s
+Time:        1.704 s
 Ran all test suites.
