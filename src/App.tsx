@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import { AddSemester } from "./components/AddSemester";
+import { FirstTable } from "./components/AddTable";
 
 function App(): JSX.Element {
     return (
@@ -22,6 +23,7 @@ function App(): JSX.Element {
             </p>
             <AddSemester></AddSemester>
             <p className="semester_title">Fall (year) Semester</p>
+            <FirstTable></FirstTable>
         </div>
     );
 }

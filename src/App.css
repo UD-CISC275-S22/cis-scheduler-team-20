@@ -30,6 +30,12 @@ img {
     color: white;
 }
 
+.DefaultTable {
+    height: 50;
+    width: 50;
+    border-color: black;
+}
+
 .semester_title {
     margin-left: 25%;
     margin-right: 65%;
