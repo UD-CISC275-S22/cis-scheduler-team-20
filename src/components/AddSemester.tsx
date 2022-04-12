@@ -1,9 +1,15 @@
 import React, { ReactElement, useState } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 
 export function AddSemester(): JSX.Element {
     const [semesters, setSemesters] = useState<ReactElement[]>([]);
     const [num, setNum] = useState<number>(-1);
+    const courses = ["CISC108", "EGGG101", "MATH241", "ENGL110"];
+    const [course, setCourse] = useState<string>(courses[0]);
+    function changeCourse(event: React.ChangeEvent<HTMLSelectElement>): string {
+        setCourse(event.target.value);
+        return event.target.value;
+    }
     function insertSemester(): void {
         setNum(num + 1);
         setSemesters([
@@ -19,7 +25,15 @@ export function AddSemester(): JSX.Element {
                             <th>Taken/Not Taken</th>
                         </tr>
                         <tr>
-                            <td>Cisc108</td>
+                            <td>
+                                <select>
+                                    {courses.map((cours: string) => (
+                                        <option key={cours} value={cours}>
+                                            {cours}
+                                        </option>
+                                    ))}
+                                </select>
+                            </td>
                             <td>Introduction to Computer Programming</td>
                             <td>3</td>
                             <td>Not Taken</td>
