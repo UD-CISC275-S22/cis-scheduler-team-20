@@ -8,6 +8,15 @@ img {
     margin-right: 88%;
 }
 
+.introduction {
+    color: black;
+    padding: 5px;
+    padding-left: 300px;
+    padding-right: 300px;
+    font-size: large;
+    border-color: darkblue;
+}
+
 .App-logo {
     pointer-events: none;
 }
