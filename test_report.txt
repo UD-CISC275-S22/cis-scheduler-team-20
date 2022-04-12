@@ -24,25 +24,18 @@ FAIL src/App.test.tsx
                 [33mclass[39m=[32m"logo"[39m
                 [33msrc[39m=[32m"https://fanapeel.com/wp-content/uploads/logo_-university-of-delaware-fightin-blue-hens-ud.png"[39m
               [36m/>[39m
-              [0mWelcome To The UD Degree Plan Scheduler[0m
+              [0mWelcome To The UDegree Plan[0m
             [36m</header>[39m
           [36m</div>[39m
-          [36m<p>[39m
-            [0mEdit [0m
-            [36m<code>[39m
-              [0msrc/App.tsx[0m
-            [36m</code>[39m
-            [0m and save. This page will automatically reload.[0m
-            [36m<span>[39m
-              [0mEthan Stipes[0m
-            [36m</span>[39m
-            [36m<span>[39m
-              [0m Tommy Ashfield [0m
-            [36m</span>[39m
-            [36m<span>[39m
-              [0mHarrison Littlepage[0m
-            [36m</span>[39m
-          [36m</p>[39m
+          [36m<div[39m
+            [33mstyle[39m=[32m"border: 4px darkblue;"[39m
+          [36m>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"introduction"[39m
+            [36m>[39m
+              [0mHere you will be able to create a custom degree plan for yourself. Press Edit Semester to add the classes you are currently in or have previously taken, and then press add semester to get started creating your full degree plan![0m
+            [36m</p>[39m
+          [36m</div>[39m
           [36m<p[39m
             [33mclass[39m=[32m"semester_title"[39m
           [36m>[39m
@@ -56,6 +49,12 @@ FAIL src/App.test.tsx
               [0mAdd Semester[0m
             [36m</button>[39m
           [36m</div>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"btn btn-primary"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mAdd Class[0m
+          [36m</button>[39m
         [36m</div>[39m
       [36m</div>[39m
     [36m</body>[39m
@@ -81,14 +80,15 @@ FAIL src/App.test.tsx
 ------------------|---------|----------|---------|---------|-------------------
 File              | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ------------------|---------|----------|---------|---------|-------------------
-All files         |   31.25 |      100 |   18.18 |   31.25 |                   
+All files         |   35.29 |      100 |      25 |   35.29 |                   
  src              |     100 |      100 |     100 |     100 |                   
   App.tsx         |     100 |      100 |     100 |     100 |                   
- src/components   |   26.66 |      100 |      10 |   26.66 |                   
+ src/components   |   31.25 |      100 |   18.18 |   31.25 |                   
+  AddClass.tsx    |     100 |      100 |     100 |     100 |                   
   AddSemester.tsx |   26.66 |      100 |      10 |   26.66 | 9-99,112-116      
 ------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        1.916 s
+Time:        1.868 s
 Ran all test suites.
