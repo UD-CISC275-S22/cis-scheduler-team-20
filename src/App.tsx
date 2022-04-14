@@ -2,7 +2,6 @@ import React from "react";
 import "./App.css";
 import { AddClass } from "./components/AddClass";
 import { AddSemester } from "./components/AddSemester";
-import { FirstTable } from "./components/AddTable";
 
 function App(): JSX.Element {
     return (
