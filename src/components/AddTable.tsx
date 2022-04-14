@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 
 interface Courses {
@@ -42,7 +42,7 @@ const classes: Courses[] = [
 ];
 
 export function FirstTable(): JSX.Element {
-    const [data] = useState<Courses[]>(classes);
+    //const [data] = useState<Courses[]>(classes);
     const firstTable = classes.map(
         (course: Courses): Courses => ({ ...course })
     );
