@@ -5,6 +5,15 @@ export function AddSemester(): JSX.Element {
     const [semesters, setSemesters] = useState<ReactElement[]>([]);
     const [num, setNum] = useState<number>(-1);
     const courses = ["CISC108", "EGGG101", "MATH241", "ENGL110"];
+    function insertClass(): void {
+        const table = document.getElementById(
+            "semester-table"
+        ) as HTMLTableElement;
+        const newRow = table.insertRow(-1);
+        const newCell = newRow.insertCell(0);
+        const newText = document.createTextNode("new class");
+        newCell.appendChild(newText);
+    }
     function insertSemester(): void {
         setNum(num + 1);
         setSemesters([
@@ -12,7 +21,12 @@ export function AddSemester(): JSX.Element {
             // eslint-disable-next-line react/jsx-key
             <div>
                 <html>
-                    <table>
+                    <table id="semester-table">
+                        <tr>
+                            <td>
+                                <Button onClick={insertClass}>Add Class</Button>
+                            </td>
+                        </tr>
                         <tr>
                             <th>Course</th>
                             <th>Full Name</th>
@@ -70,7 +84,6 @@ export function AddSemester(): JSX.Element {
                                         </option>
                                     ))}
                                 </select>
-                                )
                             </td>
                             <td>N/A</td>
                             <td>3</td>
@@ -108,10 +121,12 @@ export function AddSemester(): JSX.Element {
         ]);
     }
     return (
-        <div>
-            {semesters.map((semester: ReactElement) => semester)}
-            <Button onClick={insertSemester}>Add Semester</Button>
-        </div>
+        <>
+            <div>
+                {semesters.map((semester: ReactElement) => semester)}
+                <Button onClick={insertSemester}>Add Semester</Button>
+            </div>
+        </>
     );
     1;
 }
