@@ -5,6 +5,7 @@ export function AddSemester(): JSX.Element {
     const [semesters, setSemesters] = useState<ReactElement[]>([]);
     const [num, setNum] = useState<number>(-1);
     const [semesterNum, setSemesterNum] = useState<number>(0);
+    const [courseNum, setCourseNum] = useState<number>(0);
     const courses = ["CISC108", "EGGG101", "MATH241", "ENGL110"];
     function deleteCourse(tableId: string, rowId: string): void {
         setNum(num + 1);
@@ -28,6 +29,7 @@ export function AddSemester(): JSX.Element {
         newCell.appendChild(newText);
     }
     function insertSemester(): void {
+        setCourseNum(courseNum + 1);
         setNum(num + 1);
         setSemesterNum(semesterNum + 1);
         setSemesters([
@@ -47,7 +49,7 @@ export function AddSemester(): JSX.Element {
                             <th>Credits</th>
                             <th>Taken/Not Taken</th>
                         </tr>
-                        <tr id="a1">
+                        <tr id={"a" + courseNum}>
                             <td>
                                 <select>
                                     {courses.map((cours: string) => (
@@ -65,111 +67,7 @@ export function AddSemester(): JSX.Element {
                                     onClick={() =>
                                         deleteCourse(
                                             "semester-table" + semesterNum,
-                                            "a1"
-                                        )
-                                    }
-                                >
-                                    Delete Course
-                                </Button>
-                            </td>
-                        </tr>
-                        <tr id={"a2"}>
-                            <td>
-                                <select>
-                                    {courses.map((cours: string) => (
-                                        <option key={cours} value={cours}>
-                                            {cours}
-                                        </option>
-                                    ))}
-                                </select>
-                            </td>
-                            <td>Calc and Analytics A</td>
-                            <td>3</td>
-                            <td>Not Taken</td>
-                            <td>
-                                <Button
-                                    onClick={() =>
-                                        deleteCourse(
-                                            "semester-table" + semesterNum,
-                                            "a2"
-                                        )
-                                    }
-                                >
-                                    Delete Course
-                                </Button>
-                            </td>
-                        </tr>
-                        <tr id={"a3"}>
-                            <td>
-                                <select>
-                                    {courses.map((cours: string) => (
-                                        <option key={cours} value={cours}>
-                                            {cours}
-                                        </option>
-                                    ))}
-                                </select>
-                            </td>
-                            <td>College English</td>
-                            <td>3</td>
-                            <td>Not Taken</td>
-                            <td>
-                                <Button
-                                    onClick={() =>
-                                        deleteCourse(
-                                            "semester-table" + semesterNum,
-                                            "a3"
-                                        )
-                                    }
-                                >
-                                    Delete Course
-                                </Button>
-                            </td>
-                        </tr>
-                        <tr id={"a4"}>
-                            <td>
-                                <select>
-                                    {courses.map((cours: string) => (
-                                        <option key={cours} value={cours}>
-                                            {cours}
-                                        </option>
-                                    ))}
-                                </select>
-                            </td>
-                            <td>N/A</td>
-                            <td>3</td>
-                            <td>Not Taken</td>
-                            <td>
-                                <Button
-                                    onClick={() =>
-                                        deleteCourse(
-                                            "semester-table" + semesterNum,
-                                            "a4"
-                                        )
-                                    }
-                                >
-                                    Delete Course
-                                </Button>
-                            </td>
-                        </tr>
-                        <tr id={"a5"}>
-                            <td>
-                                <select>
-                                    {courses.map((cours: string) => (
-                                        <option key={cours} value={cours}>
-                                            {cours}
-                                        </option>
-                                    ))}
-                                </select>
-                            </td>
-                            <td>Introduction to Engineering</td>
-                            <td>3</td>
-                            <td>Not Taken</td>
-                            <td>
-                                <Button
-                                    onClick={() =>
-                                        deleteCourse(
-                                            "semester-table" + semesterNum,
-                                            "a5"
+                                            "a" + courseNum
                                         )
                                     }
                                 >
