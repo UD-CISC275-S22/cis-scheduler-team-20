@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-import { AddClass } from "./components/AddClass";
 import { AddSemester } from "./components/AddSemester";
 
 function App(): JSX.Element {
@@ -17,7 +16,7 @@ function App(): JSX.Element {
                         Welcome To The UDegree Plan
                     </header>
                 </div>
-                <div style={{ border: "4px darkblue" }}>
+                <div>
                     <p className="introduction">
                         Here you will be able to create a custom degree plan for
                         yourself. Press Edit Semester to add the classes you are
@@ -28,7 +27,6 @@ function App(): JSX.Element {
                 </div>
                 <p className="semester_title">Fall (year) Semester</p>
                 <AddSemester></AddSemester>
-                <AddClass></AddClass>
             </div>
         </>
     );
