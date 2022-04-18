@@ -11,8 +11,17 @@ export function AddSemester(): JSX.Element {
             rowId
         ) as HTMLTableRowElement;
         if (delRow !== null) {
-            delRow.parentNode.removeChild(delRow);
+            delRow?.parentNode?.removeChild(delRow);
         }
+    }
+    function insertClass(): void {
+        const table = document.getElementById(
+            "semester-table"
+        ) as HTMLTableElement;
+        const newRow = table.insertRow(-1);
+        const newCell = newRow.insertCell(0);
+        const newText = document.createTextNode("new class");
+        newCell.appendChild(newText);
     }
     function insertSemester(): void {
         setNum(num + 1);
@@ -21,7 +30,12 @@ export function AddSemester(): JSX.Element {
             // eslint-disable-next-line react/jsx-key
             <div>
                 <html>
-                    <table id="myTable">
+                    <table id="semester-table">
+                        <tr>
+                            <td>
+                                <Button onClick={insertClass}>Add Class</Button>
+                            </td>
+                        </tr>
                         <tr>
                             <th>Course</th>
                             <th>Full Name</th>
@@ -42,7 +56,7 @@ export function AddSemester(): JSX.Element {
                             <td>3</td>
                             <td>Not Taken</td>
                             <td>
-                                <Button onClick={() => deleteCourse(num)}>
+                                <Button onClick={() => deleteCourse("tr1")}>
                                     Delete Course
                                 </Button>
                             </td>
@@ -94,7 +108,6 @@ export function AddSemester(): JSX.Element {
                                         </option>
                                     ))}
                                 </select>
-                                )
                             </td>
                             <td>N/A</td>
                             <td>3</td>
