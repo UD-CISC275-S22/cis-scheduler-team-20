@@ -3,15 +3,19 @@ import { Button } from "react-bootstrap";
 
 export function AddSemester(): JSX.Element {
     const [semesters, setSemesters] = useState<ReactElement[]>([]);
-    const [num, setNum] = useState<number>(0);
+    const [num, setNum] = useState<number>(-1);
+    const [semesterNum, setSemesterNum] = useState<number>(0);
     const courses = ["CISC108", "EGGG101", "MATH241", "ENGL110"];
-    function deleteCourse(rowId: string): void {
+    function deleteCourse(tableId: string, rowId: string): void {
         setNum(num + 1);
         const delRow: HTMLTableRowElement = document.getElementById(
             rowId
         ) as HTMLTableRowElement;
+        const table: HTMLTableElement = document.getElementById(
+            tableId
+        ) as HTMLTableElement;
         if (delRow !== null) {
-            delRow?.parentNode?.removeChild(delRow);
+            table.removeChild(delRow);
         }
     }
     function insertClass(): void {
@@ -25,12 +29,13 @@ export function AddSemester(): JSX.Element {
     }
     function insertSemester(): void {
         setNum(num + 1);
+        setSemesterNum(semesterNum + 1);
         setSemesters([
             ...semesters,
             // eslint-disable-next-line react/jsx-key
             <div>
                 <html>
-                    <table id="semester-table">
+                    <table id={"semester-table" + semesterNum}>
                         <tr>
                             <td>
                                 <Button onClick={insertClass}>Add Class</Button>
@@ -42,7 +47,7 @@ export function AddSemester(): JSX.Element {
                             <th>Credits</th>
                             <th>Taken/Not Taken</th>
                         </tr>
-                        <tr id={"tr" + num}>
+                        <tr id="a1">
                             <td>
                                 <select>
                                     {courses.map((cours: string) => (
@@ -56,12 +61,19 @@ export function AddSemester(): JSX.Element {
                             <td>3</td>
                             <td>Not Taken</td>
                             <td>
-                                <Button onClick={() => deleteCourse("tr1")}>
+                                <Button
+                                    onClick={() =>
+                                        deleteCourse(
+                                            "semester-table" + semesterNum,
+                                            "a1"
+                                        )
+                                    }
+                                >
                                     Delete Course
                                 </Button>
                             </td>
                         </tr>
-                        <tr id={"tr" + num}>
+                        <tr id={"a2"}>
                             <td>
                                 <select>
                                     {courses.map((cours: string) => (
@@ -75,12 +87,19 @@ export function AddSemester(): JSX.Element {
                             <td>3</td>
                             <td>Not Taken</td>
                             <td>
-                                <Button onClick={() => deleteCourse("tr2")}>
+                                <Button
+                                    onClick={() =>
+                                        deleteCourse(
+                                            "semester-table" + semesterNum,
+                                            "a2"
+                                        )
+                                    }
+                                >
                                     Delete Course
                                 </Button>
                             </td>
                         </tr>
-                        <tr id={"tr" + num}>
+                        <tr id={"a3"}>
                             <td>
                                 <select>
                                     {courses.map((cours: string) => (
@@ -94,12 +113,19 @@ export function AddSemester(): JSX.Element {
                             <td>3</td>
                             <td>Not Taken</td>
                             <td>
-                                <Button onClick={() => deleteCourse("tr2")}>
+                                <Button
+                                    onClick={() =>
+                                        deleteCourse(
+                                            "semester-table" + semesterNum,
+                                            "a3"
+                                        )
+                                    }
+                                >
                                     Delete Course
                                 </Button>
                             </td>
                         </tr>
-                        <tr id={"tr" + num}>
+                        <tr id={"a4"}>
                             <td>
                                 <select>
                                     {courses.map((cours: string) => (
@@ -113,12 +139,19 @@ export function AddSemester(): JSX.Element {
                             <td>3</td>
                             <td>Not Taken</td>
                             <td>
-                                <Button onClick={() => deleteCourse("tr3")}>
+                                <Button
+                                    onClick={() =>
+                                        deleteCourse(
+                                            "semester-table" + semesterNum,
+                                            "a4"
+                                        )
+                                    }
+                                >
                                     Delete Course
                                 </Button>
                             </td>
                         </tr>
-                        <tr id={"tr" + num}>
+                        <tr id={"a5"}>
                             <td>
                                 <select>
                                     {courses.map((cours: string) => (
@@ -132,7 +165,14 @@ export function AddSemester(): JSX.Element {
                             <td>3</td>
                             <td>Not Taken</td>
                             <td>
-                                <Button onClick={() => deleteCourse("tr4")}>
+                                <Button
+                                    onClick={() =>
+                                        deleteCourse(
+                                            "semester-table" + semesterNum,
+                                            "a5"
+                                        )
+                                    }
+                                >
                                     Delete Course
                                 </Button>
                             </td>
