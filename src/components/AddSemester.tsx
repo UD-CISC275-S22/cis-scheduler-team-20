@@ -9,10 +9,12 @@ export function AddSemester(): JSX.Element {
         const table = document.getElementById(
             "semester-table"
         ) as HTMLTableElement;
-        const newRow = table.insertRow(-1);
-        const newCell = newRow.insertCell(0);
-        const newText = document.createTextNode("new class");
-        newCell.appendChild(newText);
+        const newRow = document.getElementById(
+            "rowToClone"
+        ) as HTMLTableRowElement;
+        const clone = newRow.cloneNode(true);
+        //clone.ID ="newID";
+        table.appendChild(clone);
     }
     function insertSemester(): void {
         setNum(num + 1);
@@ -33,7 +35,7 @@ export function AddSemester(): JSX.Element {
                             <th>Credits</th>
                             <th>Taken/Not Taken</th>
                         </tr>
-                        <tr>
+                        <tr id="rowToClone">
                             <td>
                                 <select>
                                     {courses.map((cours: string) => (
