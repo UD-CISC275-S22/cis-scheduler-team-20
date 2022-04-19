@@ -3,12 +3,16 @@ import { Button } from "react-bootstrap";
 
 export function AddSemester(): JSX.Element {
     const [semesters, setSemesters] = useState<ReactElement[]>([]);
-    const [num, setNum] = useState<number>(-1);
+    const [delnum, setDelNum] = useState<number>(0);
+    const [indnum, setIndNum] = useState<number>(0);
     const [semesterNum, setSemesterNum] = useState<number>(0);
     const [courseNum, setCourseNum] = useState<number>(0);
     const courses = ["CISC108", "EGGG101", "MATH241", "ENGL110"];
+    function deleteSemester(index: number): void {
+        setSemesters(semesters.splice(index, 1));
+        setDelNum(delnum + 1);
+    }
     function deleteCourse(tableId: string, rowId: string): void {
-        setNum(num + 1);
         const delRow: HTMLTableRowElement = document.getElementById(
             rowId
         ) as HTMLTableRowElement;
@@ -30,7 +34,7 @@ export function AddSemester(): JSX.Element {
     function insertSemester(): void {
         setCourseNum(courseNum + 1);
         setSemesterNum(semesterNum + 1);
-        setNum(num + 1);
+        setIndNum(indnum + 1);
         setSemesters([
             ...semesters,
             // eslint-disable-next-line react/jsx-key
@@ -83,16 +87,7 @@ export function AddSemester(): JSX.Element {
                             </td>
                         </tr>
                     </table>
-                    <Button
-                        onClick={() =>
-                            setSemesters(
-                                semesters.filter(
-                                    (semester: ReactElement): boolean =>
-                                        semesters[num] !== semester
-                                )
-                            )
-                        }
-                    >
+                    <Button onClick={() => deleteSemester(indnum)}>
                         Delete
                     </Button>
                 </html>
