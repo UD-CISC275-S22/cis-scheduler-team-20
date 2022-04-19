@@ -1,5 +1,7 @@
 import React, { ReactElement, useState } from "react";
 import { Button } from "react-bootstrap";
+import course_data from "../data/catalog.json";
+//import { Classes } from "../Interfaces/catalog";
 
 export function AddSemester(): JSX.Element {
     const [semesters, setSemesters] = useState<ReactElement[]>([]);
@@ -7,7 +9,6 @@ export function AddSemester(): JSX.Element {
     const [indnum, setIndNum] = useState<number>(0);
     const [semesterNum, setSemesterNum] = useState<number>(0);
     const [courseNum, setCourseNum] = useState<number>(0);
-    const courses = ["CISC108", "EGGG101", "MATH241", "ENGL110"];
     function deleteSemester(index: number): void {
         setSemesters(semesters.splice(index, 1));
         setDelNum(delnum + 1);
@@ -63,11 +64,16 @@ export function AddSemester(): JSX.Element {
                         <tr id={"a" + courseNum}>
                             <td>
                                 <select>
-                                    {courses.map((cours: string) => (
-                                        <option key={cours} value={cours}>
-                                            {cours}
-                                        </option>
-                                    ))}
+                                    {Object.entries(course_data).map(
+                                        ([cours, info]) => (
+                                            <option
+                                                key={cours}
+                                                value={info.code}
+                                            >
+                                                {info.code}
+                                            </option>
+                                        )
+                                    )}
                                 </select>
                             </td>
                             <td>Introduction to Computer Programming</td>
