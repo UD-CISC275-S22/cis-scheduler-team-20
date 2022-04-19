@@ -19,21 +19,18 @@ export function AddSemester(): JSX.Element {
             table.removeChild(delRow);
         }
     }
-    function insertClass(): void {
-        const table = document.getElementById(
-            "semester-table"
-        ) as HTMLTableElement;
-        const newRow = document.getElementById(
-            "rowToClone"
-        ) as HTMLTableRowElement;
-        const clone = newRow.cloneNode(true);
-        //clone.ID ="newID";
+    function insertClass(semesterID: string): void {
+        setCourseNum(courseNum + 1);
+        const table = document.getElementById(semesterID) as HTMLTableElement;
+        const newRow = document.getElementById("a0") as HTMLTableRowElement;
+        const clone = newRow.cloneNode(false) as HTMLTableRowElement;
+        clone.id = "a";
         table.appendChild(clone);
     }
     function insertSemester(): void {
         setCourseNum(courseNum + 1);
-        setNum(num + 1);
         setSemesterNum(semesterNum + 1);
+        setNum(num + 1);
         setSemesters([
             ...semesters,
             // eslint-disable-next-line react/jsx-key
@@ -42,7 +39,15 @@ export function AddSemester(): JSX.Element {
                     <table id={"semester-table" + semesterNum}>
                         <tr>
                             <td>
-                                <Button onClick={insertClass}>Add Class</Button>
+                                <Button
+                                    onClick={() =>
+                                        insertClass(
+                                            "semester-table" + semesterNum
+                                        )
+                                    }
+                                >
+                                    Add Class
+                                </Button>
                             </td>
                         </tr>
                         <tr>
@@ -51,11 +56,7 @@ export function AddSemester(): JSX.Element {
                             <th>Credits</th>
                             <th>Taken/Not Taken</th>
                         </tr>
-<<<<<<< HEAD
-                        <tr id="rowToClone">
-=======
                         <tr id={"a" + courseNum}>
->>>>>>> 39ae58b084b3af7d22602e84621fc3492aa665cb
                             <td>
                                 <select>
                                     {courses.map((cours: string) => (
@@ -99,10 +100,12 @@ export function AddSemester(): JSX.Element {
         ]);
     }
     return (
-        <div>
-            {semesters.map((semester: ReactElement) => semester)}
-            <Button onClick={insertSemester}>Add Semester</Button>
-        </div>
+        <>
+            <div>
+                {semesters.map((semester: ReactElement) => semester)}
+                <Button onClick={insertSemester}>Add Semester</Button>
+            </div>
+        </>
     );
     1;
 }
