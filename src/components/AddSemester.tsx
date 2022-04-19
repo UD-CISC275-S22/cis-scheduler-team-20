@@ -8,7 +8,6 @@ export function AddSemester(): JSX.Element {
     const [num, setNum] = useState<number>(-1);
     const [semesterNum, setSemesterNum] = useState<number>(0);
     const [courseNum, setCourseNum] = useState<number>(0);
-    const courses = ["CISC108", "EGGG101", "MATH241", "ENGL110"];
     function deleteCourse(tableId: string, rowId: string): void {
         setNum(num + 1);
         const delRow: HTMLTableRowElement = document.getElementById(
