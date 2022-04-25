@@ -1,5 +1,5 @@
 import React, { ReactElement, useState } from "react";
-import { Button } from "react-bootstrap";
+import { Button, FormControl } from "react-bootstrap";
 import course_data from "../data/catalog.json";
 //import { Classes } from "../Interfaces/catalog";
 
@@ -9,6 +9,7 @@ export function AddSemester(): JSX.Element {
     const [indnum, setIndNum] = useState<number>(0);
     const [semesterNum, setSemesterNum] = useState<number>(0);
     const [courseNum, setCourseNum] = useState<number>(0);
+    const [year, setYear] = useState<number>(2022);
     function deleteSemester(index: number): void {
         setSemesters(semesters.splice(index, 1));
         setDelNum(delnum + 1);
@@ -48,6 +49,15 @@ export function AddSemester(): JSX.Element {
             <div>
                 <html>
                     <table id={"semester-table" + semesterNum}>
+                        <thead>
+                            <select>
+                                <option>Summer</option>
+                                <option>Fall</option>
+                                <option>Winter</option>
+                                <option>Spring</option>
+                            </select>
+                            <span contentEditable>2022</span>
+                        </thead>
                         <tr>
                             <td>
                                 <Button
