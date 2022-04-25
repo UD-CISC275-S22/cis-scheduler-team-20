@@ -24,12 +24,18 @@ export function AddSemester(): JSX.Element {
             table.removeChild(delRow);
         }
     }
+    function alternateDeleteCourse(tableID: string): void {
+        const table = document.getElementById(tableID) as HTMLTableElement;
+        const rows = table.getElementsByTagName("tr");
+        const rowCount = rows.length;
+        table.deleteRow(rowCount - 1);
+    }
     function insertClass(semesterID: string): void {
         setCourseNum(courseNum + 1);
         const table = document.getElementById(semesterID) as HTMLTableElement;
         const newRow = document.getElementById("a0") as HTMLTableRowElement;
-        const clone = newRow.cloneNode(false) as HTMLTableRowElement;
-        clone.id = "a";
+        const clone = newRow.cloneNode(true) as HTMLTableRowElement;
+        clone.id = "a" + courseNum;
         table.appendChild(clone);
     }
     function insertSemester(): void {
@@ -52,6 +58,17 @@ export function AddSemester(): JSX.Element {
                                     }
                                 >
                                     Add Class
+                                </Button>
+                            </td>
+                            <td>
+                                <Button
+                                    onClick={() =>
+                                        alternateDeleteCourse(
+                                            "semester-table" + semesterNum
+                                        )
+                                    }
+                                >
+                                    Delete course
                                 </Button>
                             </td>
                         </tr>
