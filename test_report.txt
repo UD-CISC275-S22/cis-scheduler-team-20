@@ -3,7 +3,7 @@
 > react-scripts test "--coverage"
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (41 ms)
+  ✕ renders the course name somewhere (72 ms)
 
   ● renders the course name somewhere
 
@@ -47,6 +47,14 @@ FAIL src/App.test.tsx
               [0mAdd Semester[0m
             [36m</button>[39m
           [36m</div>[39m
+          [36m<div>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"btn btn-primary"[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0mCreate Plan[0m
+            [36m</button>[39m
+          [36m</div>[39m
         [36m</div>[39m
       [36m</div>[39m
     [36m</body>[39m
@@ -72,20 +80,21 @@ FAIL src/App.test.tsx
 -------------------|---------|----------|---------|---------|-------------------
 File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -------------------|---------|----------|---------|---------|-------------------
-All files          |   19.04 |        0 |    12.5 |   19.04 |                   
- src               |     100 |      100 |     100 |     100 |                   
-  App.tsx          |     100 |      100 |     100 |     100 |                   
+All files          |   26.92 |        0 |   14.28 |      28 |                   
+ src               |   45.45 |        0 |      20 |   55.55 |                   
+  App.tsx          |   45.45 |        0 |      20 |   55.55 | 15-19             
  src/Interfaces    |       0 |      100 |     100 |       0 |                   
   course.ts        |       0 |        0 |       0 |       0 |                   
   origionalPlan.ts |       0 |      100 |     100 |       0 | 3                 
   plan.ts          |       0 |        0 |       0 |       0 |                   
   semester.ts      |       0 |        0 |       0 |       0 |                   
- src/components    |    17.5 |        0 |    6.66 |    17.5 |                   
-  AddSemester.tsx  |      20 |        0 |    7.69 |      20 | 22-137,147-152    
+ src/components    |    22.5 |        0 |    12.5 |    22.5 |                   
+  AddPlan.tsx      |      40 |      100 |   33.33 |      40 | 18-19,38          
+  AddSemester.tsx  |   23.33 |        0 |    9.09 |   23.33 | 22-112,122-127    
   AddTable.tsx     |       0 |      100 |       0 |       0 | 11-50             
 -------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.132 s
+Time:        2.754 s
 Ran all test suites.
