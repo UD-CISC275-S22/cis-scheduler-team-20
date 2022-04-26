@@ -1,9 +1,11 @@
-export interface Classes {
+//A baseline for all the courses
+
+export interface Course {
     code: string;
     name: string;
     descr: string;
     credits: string;
-    preRe1: string;
+    preReq: string;
     restrict: string;
     breadth: string;
     typ: string;
