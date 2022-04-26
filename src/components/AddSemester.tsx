@@ -1,6 +1,7 @@
 import React, { ReactElement, useState } from "react";
 import { Button } from "react-bootstrap";
 import course_data from "../data/catalog.json";
+//import { origionalPlan } from "../Interfaces/origionalPlan";
 //import { Classes } from "../Interfaces/catalog";
 
 export function AddSemester(): JSX.Element {

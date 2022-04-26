@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import { AddSemester } from "./components/AddSemester";
+import { AddFormSemester } from "./components/AddFormSemester";
 
 function App(): JSX.Element {
     return (
@@ -27,6 +28,7 @@ function App(): JSX.Element {
                 </div>
                 <p className="semester_title">Fall (year) Semester</p>
                 <AddSemester></AddSemester>
+                <AddFormSemester></AddFormSemester>
             </div>
         </>
     );
