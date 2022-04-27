@@ -34,12 +34,6 @@ export function AddSemester(): JSX.Element {
             table.removeChild(delRow);
         }
     }
-    function alternateDeleteCourse(tableID: string): void {
-        const table = document.getElementById(tableID) as HTMLTableElement;
-        const rows = table.getElementsByTagName("tr");
-        const rowCount = rows.length;
-        table.deleteRow(rowCount - 1);
-    }
     function insertClass(semesterID: string): void {
         setCourseNum(courseNum + 1);
         const table = document.getElementById(semesterID) as HTMLTableElement;
@@ -57,46 +51,20 @@ export function AddSemester(): JSX.Element {
             // eslint-disable-next-line react/jsx-key
             <div>
                 <html>
+                    <div>
+                        <select>
+                            <option>Summer</option>
+                            <option>Fall</option>
+                            <option>Winter</option>
+                            <option>Spring</option>
+                        </select>
+                        <select>
+                            {years.map((year: number) => (
+                                <option key={year}>{year}</option>
+                            ))}
+                        </select>
+                    </div>
                     <table id={"semester-table" + semesterNum}>
-                        <thead>
-                            <div>
-                                <select>
-                                    <option>Summer</option>
-                                    <option>Fall</option>
-                                    <option>Winter</option>
-                                    <option>Spring</option>
-                                </select>
-                                <select>
-                                    {years.map((year: number) => (
-                                        <option key={year}>{year}</option>
-                                    ))}
-                                </select>
-                            </div>
-                        </thead>
-                        <tr>
-                            <td>
-                                <Button
-                                    onClick={() =>
-                                        insertClass(
-                                            "semester-table" + semesterNum
-                                        )
-                                    }
-                                >
-                                    Add Class
-                                </Button>
-                            </td>
-                            <td>
-                                <Button
-                                    onClick={() =>
-                                        alternateDeleteCourse(
-                                            "semester-table" + semesterNum
-                                        )
-                                    }
-                                >
-                                    Delete course
-                                </Button>
-                            </td>
-                        </tr>
                         <tr>
                             <th>Course</th>
                             <th>Full Name</th>
@@ -135,6 +103,13 @@ export function AddSemester(): JSX.Element {
                             </td>
                         </tr>
                     </table>
+                    <Button
+                        onClick={() =>
+                            insertClass("semester-table" + semesterNum)
+                        }
+                    >
+                        Add Class
+                    </Button>
                     <Button onClick={() => deleteSemester(indnum)}>
                         Delete
                     </Button>
