@@ -3,7 +3,7 @@
 > react-scripts test "--coverage"
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (95 ms)
+  ✕ renders the course name somewhere (128 ms)
 
   ● renders the course name somewhere
 
@@ -490,6 +490,84 @@ FAIL src/App.test.tsx
             [36m>[39m
               [0mAdd Semester[0m
             [36m</button>[39m
+            [36m<div>[39m
+              [36m<div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"row"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col"[39m
+                  [36m>[39m
+                    [36m<h3>[39m
+                      [0mFall 2020[0m
+                    [36m</h3>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"row"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col"[39m
+                  [36m>[39m
+                    [36m<h5>[39m
+                      [0mClass Code[0m
+                    [36m</h5>[39m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col"[39m
+                  [36m>[39m
+                    [36m<h5>[39m
+                      [0mClass Name[0m
+                    [36m</h5>[39m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col"[39m
+                  [36m>[39m
+                    [36m<h5>[39m
+                      [0mCredits[0m
+                    [36m</h5>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"row"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col"[39m
+                  [36m>[39m
+                    [0mCISC108[0m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col"[39m
+                  [36m>[39m
+                    [0mIntroduction to Computer Science I[0m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col"[39m
+                  [36m>[39m
+                    [0m3[0m
+                  [36m</div>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"row"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col"[39m
+                  [36m>[39m
+                    [0mCISC 275[0m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col"[39m
+                  [36m>[39m
+                    [0mIntroduction to Software Engineering[0m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col"[39m
+                  [36m>[39m
+                    [0m3[0m
+                  [36m</div>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+            [36m</div>[39m
           [36m</div>[39m
         [36m</div>[39m
       [36m</div>[39m
@@ -516,7 +594,7 @@ FAIL src/App.test.tsx
 ----------------------|---------|----------|---------|---------|-------------------
 File                  | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ----------------------|---------|----------|---------|---------|-------------------
-All files             |   33.84 |        0 |   21.42 |   34.92 |                   
+All files             |   35.82 |        0 |   26.66 |   36.92 |                   
  src                  |   45.45 |        0 |      20 |   55.55 |                   
   App.tsx             |   45.45 |        0 |      20 |   55.55 | 17-21             
  src/Interfaces       |     100 |      100 |     100 |     100 |                   
@@ -524,8 +602,8 @@ All files             |   33.84 |        0 |   21.42 |   34.92 |
   origionalPlan.ts    |     100 |      100 |     100 |     100 |                   
   plan.ts             |       0 |        0 |       0 |       0 |                   
   semester.ts         |       0 |        0 |       0 |       0 |                   
- src/components       |   30.18 |        0 |   21.73 |   30.18 |                   
-  AddFormSemester.tsx |   54.54 |      100 |      40 |   54.54 | 19-58             
+ src/components       |   32.72 |        0 |      28 |   32.72 |                   
+  AddFormSemester.tsx |   61.53 |      100 |   57.14 |   61.53 | 21-60             
   AddPlan.tsx         |      40 |      100 |   33.33 |      40 | 18-19,38          
   AddSemester.tsx     |   23.33 |        0 |    9.09 |   23.33 | 23-113,123-128    
   AddTable.tsx        |       0 |      100 |       0 |       0 | 11-50             
@@ -534,5 +612,5 @@ All files             |   33.84 |        0 |   21.42 |   34.92 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.51 s
+Time:        3.173 s
 Ran all test suites.
