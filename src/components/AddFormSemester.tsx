@@ -77,7 +77,10 @@ export function AddFormSemester(): JSX.Element {
             <Button onClick={addFormSem}>Add Semester</Button>
             <div>
                 {origionalPlan.semesters.map((sem: Semester) => (
-                    <Form.Group key={sem.season + sem.year}>
+                    <Form.Group
+                        key={sem.season + sem.year}
+                        style={{ border: "1px solid black" }}
+                    >
                         <Row>
                             <Col>
                                 <h3>{sem.season + " " + sem.year}</h3>
