@@ -3,7 +3,7 @@
 > react-scripts test "--coverage"
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (128 ms)
+  ✕ renders the course name somewhere (104 ms)
 
   ● renders the course name somewhere
 
@@ -491,7 +491,9 @@ FAIL src/App.test.tsx
               [0mAdd Semester[0m
             [36m</button>[39m
             [36m<div>[39m
-              [36m<div>[39m
+              [36m<div[39m
+                [33mstyle[39m=[32m"border: 1px solid black;"[39m
+              [36m>[39m
                 [36m<div[39m
                   [33mclass[39m=[32m"row"[39m
                 [36m>[39m
@@ -612,5 +614,5 @@ All files             |   35.82 |        0 |   26.66 |   36.92 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.173 s
+Time:        2.533 s
 Ran all test suites.
