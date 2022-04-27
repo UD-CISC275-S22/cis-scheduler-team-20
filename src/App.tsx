@@ -5,6 +5,7 @@ import { AddFormSemester } from "./components/AddFormSemester";
 import { Plan } from "./Interfaces/plan";
 import { AddPlan } from "./components/AddPlan";
 import { Button } from "react-bootstrap";
+import { DisplayPlan } from "./components/DisplayPlan";
 
 function App(): JSX.Element {
     const [show, setShow] = useState<boolean>(false);
@@ -34,6 +35,9 @@ function App(): JSX.Element {
                     </header>
                 </div>
                 <div>
+                    <Button className="plan" onClick={showModal}>
+                        Create Plan
+                    </Button>
                     <p className="introduction">
                         Here you will be able to create a custom degree plan for
                         yourself. Press Edit Semester to add the classes you are
@@ -43,11 +47,9 @@ function App(): JSX.Element {
                     </p>
                 </div>
                 <p className="semester_title">Fall (year) Semester</p>
+                <DisplayPlan plan={plans}></DisplayPlan>
                 <AddSemester></AddSemester>
                 <AddFormSemester></AddFormSemester>
-                <div>
-                    <Button onClick={showModal}>Create Plan</Button>
-                </div>
                 <AddPlan close={dontShow} plan={addPlan} show={show}></AddPlan>
             </div>
         </>
