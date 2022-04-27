@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import { AddSemester } from "./components/AddSemester";
+import { AddFormSemester } from "./components/AddFormSemester";
 import { Plan } from "./Interfaces/plan";
 import { AddPlan } from "./components/AddPlan";
 import { Button } from "react-bootstrap";
@@ -43,6 +44,7 @@ function App(): JSX.Element {
                 </div>
                 <p className="semester_title">Fall (year) Semester</p>
                 <AddSemester></AddSemester>
+                <AddFormSemester></AddFormSemester>
                 <div>
                     <Button onClick={showModal}>Create Plan</Button>
                 </div>
