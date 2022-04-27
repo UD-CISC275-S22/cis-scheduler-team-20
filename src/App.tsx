@@ -1,6 +1,8 @@
 import React from "react";
 import "./App.css";
+//import { AddCourseButton } from "./components/AddCourseButton";
 import { AddSemester } from "./components/AddSemester";
+//import { AddCourseModal } from "./components/CourseModal";
 
 function App(): JSX.Element {
     return (
