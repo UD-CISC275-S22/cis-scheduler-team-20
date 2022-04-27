@@ -1,6 +1,8 @@
 import { origionalPlan } from "../Interfaces/origionalPlan";
 import React, { useState } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Col, Form, Row } from "react-bootstrap";
+import { Semester } from "../Interfaces/semester";
+import { Course } from "../Interfaces/course";
 //Should Add a Semester to the Semester Array
 export function AddFormSemester(): JSX.Element {
     const [semNum, setSemNum] = useState<number>(1);
@@ -20,8 +22,8 @@ export function AddFormSemester(): JSX.Element {
             ...origionalPlan.semesters,
             {
                 id: "" + semNum,
-                season: "Fall",
-                year: 2020,
+                season: season,
+                year: year,
                 classes: [
                     {
                         code: "CISC108",
@@ -73,6 +75,38 @@ export function AddFormSemester(): JSX.Element {
                 ))}
             </select>
             <Button onClick={addFormSem}>Add Semester</Button>
+            <div>
+                {origionalPlan.semesters.map((sem: Semester) => (
+                    <Form.Group
+                        key={sem.season + sem.year}
+                        style={{ border: "1px solid black" }}
+                    >
+                        <Row>
+                            <Col>
+                                <h3>{sem.season + " " + sem.year}</h3>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <h5>{"Class Code"}</h5>
+                            </Col>
+                            <Col>
+                                <h5>{"Class Name"}</h5>
+                            </Col>
+                            <Col>
+                                <h5>{"Credits"}</h5>
+                            </Col>
+                        </Row>
+                        {sem.classes.map((cls: Course) => (
+                            <Row key={cls.code}>
+                                <Col>{cls.code}</Col>
+                                <Col>{cls.name}</Col>
+                                <Col>{cls.credits}</Col>
+                            </Row>
+                        ))}
+                    </Form.Group>
+                ))}
+            </div>
         </div>
     );
 }
