@@ -3,7 +3,7 @@
 > react-scripts test "--coverage"
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (87 ms)
+  ✕ renders the course name somewhere (95 ms)
 
   ● renders the course name somewhere
 
@@ -28,6 +28,12 @@ FAIL src/App.test.tsx
             [36m</header>[39m
           [36m</div>[39m
           [36m<div>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"plan btn btn-primary"[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0mCreate Plan[0m
+            [36m</button>[39m
             [36m<p[39m
               [33mclass[39m=[32m"introduction"[39m
             [36m>[39m
@@ -39,6 +45,17 @@ FAIL src/App.test.tsx
           [36m>[39m
             [0mFall (year) Semester[0m
           [36m</p>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"container"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"row"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"col"[39m
+              [36m/>[39m
+            [36m</div>[39m
+          [36m</div>[39m
           [36m<div>[39m
             [36m<button[39m
               [33mclass[39m=[32m"btn btn-primary"[39m
@@ -474,14 +491,6 @@ FAIL src/App.test.tsx
               [0mAdd Semester[0m
             [36m</button>[39m
           [36m</div>[39m
-          [36m<div>[39m
-            [36m<button[39m
-              [33mclass[39m=[32m"btn btn-primary"[39m
-              [33mtype[39m=[32m"button"[39m
-            [36m>[39m
-              [0mCreate Plan[0m
-            [36m</button>[39m
-          [36m</div>[39m
         [36m</div>[39m
       [36m</div>[39m
     [36m</body>[39m
@@ -507,22 +516,23 @@ FAIL src/App.test.tsx
 ----------------------|---------|----------|---------|---------|-------------------
 File                  | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ----------------------|---------|----------|---------|---------|-------------------
-All files             |   33.33 |        0 |   19.23 |   34.42 |                   
+All files             |   33.84 |        0 |   21.42 |   34.92 |                   
  src                  |   45.45 |        0 |      20 |   55.55 |                   
-  App.tsx             |   45.45 |        0 |      20 |   55.55 | 16-20             
+  App.tsx             |   45.45 |        0 |      20 |   55.55 | 17-21             
  src/Interfaces       |     100 |      100 |     100 |     100 |                   
   course.ts           |       0 |        0 |       0 |       0 |                   
   origionalPlan.ts    |     100 |      100 |     100 |     100 |                   
   plan.ts             |       0 |        0 |       0 |       0 |                   
   semester.ts         |       0 |        0 |       0 |       0 |                   
- src/components       |   29.41 |        0 |   19.04 |   29.41 |                   
+ src/components       |   30.18 |        0 |   21.73 |   30.18 |                   
   AddFormSemester.tsx |   54.54 |      100 |      40 |   54.54 | 19-58             
   AddPlan.tsx         |      40 |      100 |   33.33 |      40 | 18-19,38          
   AddSemester.tsx     |   23.33 |        0 |    9.09 |   23.33 | 23-113,123-128    
   AddTable.tsx        |       0 |      100 |       0 |       0 | 11-50             
+  DisplayPlan.tsx     |      50 |      100 |      50 |      50 | 20                
 ----------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.322 s
+Time:        2.51 s
 Ran all test suites.
