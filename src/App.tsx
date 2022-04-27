@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 //import { AddCourseButton } from "./components/AddCourseButton";
 import { AddSemester } from "./components/AddSemester";
-//import { AddCourseModal } from "./components/CourseModal";
+import { Plan } from "./Interfaces/plan";
+import { AddPlan } from "./components/AddPlan";
+import { Button } from "react-bootstrap";
 
 function App(): JSX.Element {
+    const [show, setShow] = useState<boolean>(false);
+    const [plans, setPlans] = useState<Plan[]>([]);
+    const showModal = () => setShow(true);
+    const dontShow = () => setShow(false);
+
+    function addPlan(newPlan: Plan) {
+        const existing = plans.find(
+            (plan: Plan): boolean => plan.name === newPlan.name
+        );
+        if (existing === undefined) {
+            setPlans([...plans, newPlan]);
+        }
+    }
     return (
         <>
             <div className="App">
@@ -29,6 +44,10 @@ function App(): JSX.Element {
                 </div>
                 <p className="semester_title">Fall (year) Semester</p>
                 <AddSemester></AddSemester>
+                <div>
+                    <Button onClick={showModal}>Create Plan</Button>
+                </div>
+                <AddPlan close={dontShow} plan={addPlan} show={show}></AddPlan>
             </div>
         </>
     );
