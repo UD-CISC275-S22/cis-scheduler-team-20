@@ -7,12 +7,20 @@ import { Plan } from "./Interfaces/plan";
 import { AddPlan } from "./components/AddPlan";
 import { Button } from "react-bootstrap";
 import { DisplayPlan } from "./components/DisplayPlan";
+import { InsertSemesterModal } from "./components/InsertSemester";
 
 function App(): JSX.Element {
     const [show, setShow] = useState<boolean>(false);
     const [plans, setPlans] = useState<Plan[]>([]);
     const showModal = () => setShow(true);
     const dontShow = () => setShow(false);
+
+    // State that handles add semester modal
+    const [showTheModal, setShowModal] = useState<boolean>(false);
+
+    //These are for opening and closing the insert modal
+    const handleShowInsertSemesterModal = () => setShowModal(true);
+    const handleCloseInsertSemesterModal = () => setShowModal(false);
 
     function addPlan(newPlan: Plan) {
         const existing = plans.find(
@@ -52,6 +60,17 @@ function App(): JSX.Element {
                 <AddSemester></AddSemester>
                 <AddFormSemester></AddFormSemester>
                 <AddPlan close={dontShow} plan={addPlan} show={show}></AddPlan>
+
+                <Button
+                    onClick={handleShowInsertSemesterModal}
+                    data-testid="add_semester_button"
+                >
+                    Add Semester 1
+                </Button>
+                <InsertSemesterModal
+                    showModal={showTheModal}
+                    closeModal={handleCloseInsertSemesterModal}
+                ></InsertSemesterModal>
             </div>
         </>
     );
