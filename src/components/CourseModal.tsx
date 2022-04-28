@@ -6,6 +6,7 @@ import { Course } from "../Interfaces/course";
 import { Semester } from "../Interfaces/semester";
 
 //holds the modal and brings up the AddCourseToSemester UI in a pop-up window
+//
 
 export function AddCourseModal({
     showModal,
