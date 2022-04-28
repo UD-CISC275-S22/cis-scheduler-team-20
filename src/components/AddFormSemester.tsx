@@ -3,11 +3,13 @@ import React, { useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { Semester } from "../Interfaces/semester";
 import { Course } from "../Interfaces/course";
+import { Plan } from "../Interfaces/plan";
 //Should Add a Semester to the Semester Array
 export function AddFormSemester(): JSX.Element {
     const [semNum, setSemNum] = useState<number>(1);
     const [season, setSeason] = useState<string>("Fall");
     const [year, setYear] = useState<number>(2022);
+    const [planNum, setPlanNum] = useState<number>(0);
     const years = [
         2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033,
         2034, 2035, 2036, 2037, 2038, 2039, 2040, 2041, 2042, 2043, 2044, 2045,
@@ -17,9 +19,9 @@ export function AddFormSemester(): JSX.Element {
         2082, 2083, 2084, 2085, 2086, 2087, 2088, 2089, 2090, 2091, 2092, 2093,
         2094, 2095, 2096, 2097, 2098, 2099, 2100
     ];
-    function addFormSem(): void {
-        origionalPlan.semesters = [
-            ...origionalPlan.semesters,
+    function addFormSem(plan: Plan): void {
+        plan.semesters = [
+            ...plan.semesters,
             {
                 id: "" + semNum,
                 season: season,
@@ -74,12 +76,22 @@ export function AddFormSemester(): JSX.Element {
                     </option>
                 ))}
             </select>
-            <Button onClick={addFormSem}>Add Semester</Button>
+            <div>
+                <select>
+                    <option></option>
+                </select>
+                <Button onClick={() => addFormSem(origionalPlan)}>
+                    Add Semester
+                </Button>
+            </div>
             <div>
                 {origionalPlan.semesters.map((sem: Semester) => (
                     <Form.Group
                         key={sem.season + sem.year}
-                        style={{ border: "1px solid black" }}
+                        style={{
+                            border: "2px solid black",
+                            backgroundColor: "LightBlue"
+                        }}
                     >
                         <Row>
                             <Col>

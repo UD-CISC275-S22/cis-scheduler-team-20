@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import { AddSemester } from "./components/AddSemester";
+// import { AddSemester } from "./components/AddSemester";
 import { AddFormSemester } from "./components/AddFormSemester";
 import { Plan } from "./Interfaces/plan";
 import { AddPlan } from "./components/AddPlan";
@@ -48,7 +48,6 @@ function App(): JSX.Element {
                 </div>
                 <p className="semester_title">Fall (year) Semester</p>
                 <DisplayPlan plan={plans}></DisplayPlan>
-                <AddSemester></AddSemester>
                 <AddFormSemester></AddFormSemester>
                 <AddPlan close={dontShow} plan={addPlan} show={show}></AddPlan>
             </div>
