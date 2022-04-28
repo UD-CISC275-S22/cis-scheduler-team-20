@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 //import { AddCourseButton } from "./components/AddCourseButton";
 import { AddSemester } from "./components/AddSemester";
-import { AddFormSemester } from "./components/AddFormSemester";
+//import { AddFormSemester } from "./components/AddFormSemester";
 import { Plan } from "./Interfaces/plan";
 import { AddPlan } from "./components/AddPlan";
 import { Button } from "react-bootstrap";
@@ -11,6 +11,7 @@ import { InsertSemesterModal } from "./components/InsertSemester";
 
 function App(): JSX.Element {
     const [show, setShow] = useState<boolean>(false);
+    const [visible, setVisible] = useState<boolean>(false);
     const [plans, setPlans] = useState<Plan[]>([]);
     const showModal = () => setShow(true);
     const dontShow = () => setShow(false);
@@ -21,6 +22,11 @@ function App(): JSX.Element {
     //These are for opening and closing the insert modal
     const handleShowInsertSemesterModal = () => setShowModal(true);
     const handleCloseInsertSemesterModal = () => setShowModal(false);
+
+    function changeVisibilty(): void {
+        setVisible(!visible);
+        showModal();
+    }
 
     function addPlan(newPlan: Plan) {
         const existing = plans.find(
@@ -44,7 +50,7 @@ function App(): JSX.Element {
                     </header>
                 </div>
                 <div>
-                    <Button className="plan" onClick={showModal}>
+                    <Button className="plan" onClick={changeVisibilty}>
                         Create Plan
                     </Button>
                     <p className="introduction">
@@ -56,9 +62,9 @@ function App(): JSX.Element {
                     </p>
                 </div>
                 <p className="semester_title">Fall (year) Semester</p>
-                <DisplayPlan plan={plans}></DisplayPlan>
+                {visible && <DisplayPlan plan={plans}></DisplayPlan>}
                 <AddSemester></AddSemester>
-                <AddFormSemester></AddFormSemester>
+                {/*<AddFormSemester></AddFormSemester>*/}
                 <AddPlan close={dontShow} plan={addPlan} show={show}></AddPlan>
 
                 <Button
