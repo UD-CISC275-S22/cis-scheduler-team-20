@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import { AddSemester } from "./components/AddSemester";
-import { AddFormSemester } from "./components/AddFormSemester";
+//import { AddFormSemester } from "./components/AddFormSemester";
 import { Plan } from "./Interfaces/plan";
 import { AddPlan } from "./components/AddPlan";
 import { Button } from "react-bootstrap";
@@ -9,9 +9,15 @@ import { DisplayPlan } from "./components/DisplayPlan";
 
 function App(): JSX.Element {
     const [show, setShow] = useState<boolean>(false);
+    const [visible, setVisible] = useState<boolean>(false);
     const [plans, setPlans] = useState<Plan[]>([]);
     const showModal = () => setShow(true);
     const dontShow = () => setShow(false);
+
+    function changeVisibilty(): void {
+        setVisible(!visible);
+        showModal();
+    }
 
     function addPlan(newPlan: Plan) {
         const existing = plans.find(
@@ -35,7 +41,7 @@ function App(): JSX.Element {
                     </header>
                 </div>
                 <div>
-                    <Button className="plan" onClick={showModal}>
+                    <Button className="plan" onClick={changeVisibilty}>
                         Create Plan
                     </Button>
                     <p className="introduction">
@@ -47,9 +53,9 @@ function App(): JSX.Element {
                     </p>
                 </div>
                 <p className="semester_title">Fall (year) Semester</p>
-                <DisplayPlan plan={plans}></DisplayPlan>
+                {visible && <DisplayPlan plan={plans}></DisplayPlan>}
                 <AddSemester></AddSemester>
-                <AddFormSemester></AddFormSemester>
+                {/*<AddFormSemester></AddFormSemester>*/}
                 <AddPlan close={dontShow} plan={addPlan} show={show}></AddPlan>
             </div>
         </>
