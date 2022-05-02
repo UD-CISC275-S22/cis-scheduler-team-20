@@ -3,11 +3,7 @@ import { Modal, ModalTitle } from "react-bootstrap";
 import ModalHeader from "react-bootstrap/esm/ModalHeader";
 import { Course } from "../Interfaces/course";
 import { Semester } from "../Interfaces/semester";
-import { AddCourseToSemester } from "./AddCourseToSemester";
-<<<<<<< HEAD
-=======
-
->>>>>>> 35a46dbf14a0b287775f92ca1b96032eed31ce79
+import { AddCoursetoSemester } from "./AddCourseToSemester";
 
 //holds the modal and brings up the AddCourseToSemester UI in a pop-up window
 //
