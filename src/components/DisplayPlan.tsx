@@ -24,17 +24,17 @@ export function DisplayPlan({
             <Row>
                 <Col>
                     {plan.map((plan: Plan) => (
-                        <h1>{plan.name}</h1>
+                        <>
+                            <h1>{plan.name}</h1>
+                            <Button onClick={changeShow}>View Plan</Button>
+                            {show && (
+                                <Col>
+                                    <AddFormSemester></AddFormSemester>
+                                </Col>
+                            )}
+                        </>
                     ))}
                 </Col>
-            </Row>
-            <Button onClick={changeShow}>View Plan</Button>
-            <Row>
-                {show && (
-                    <Col>
-                        <AddFormSemester></AddFormSemester>
-                    </Col>
-                )}
             </Row>
         </Container>
     );
