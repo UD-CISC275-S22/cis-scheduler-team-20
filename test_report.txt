@@ -3,98 +3,80 @@
 > react-scripts test "--coverage"
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (70 ms)
+  ● Test suite failed to run
 
-  ● renders the course name somewhere
+    Jest encountered an unexpected token
 
-    TestingLibraryElementError: Unable to find an element with the text: /CISC275/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+    Jest failed to parse a file. This happens e.g. when your code or its dependencies use non-standard JavaScript syntax, or when Jest is not configured to support such syntax.
 
-    Ignored nodes: comments, <script />, <style />
-    [36m<body>[39m
-      [36m<div>[39m
-        [36m<div[39m
-          [33mclass[39m=[32m"App"[39m
-        [36m>[39m
-          [36m<div>[39m
-            [36m<header[39m
-              [33mclass[39m=[32m"App-header"[39m
-            [36m>[39m
-              [36m<img[39m
-                [33malt[39m=[32m"a UD logo"[39m
-                [33mclass[39m=[32m"logo"[39m
-                [33msrc[39m=[32m"https://fanapeel.com/wp-content/uploads/logo_-university-of-delaware-fightin-blue-hens-ud.png"[39m
-              [36m/>[39m
-              [0mWelcome To The UDegree Plan[0m
-            [36m</header>[39m
-          [36m</div>[39m
-          [36m<div>[39m
-            [36m<button[39m
-              [33mclass[39m=[32m"plan btn btn-primary"[39m
-              [33mtype[39m=[32m"button"[39m
-            [36m>[39m
-              [0mCreate Plan[0m
-            [36m</button>[39m
-            [36m<p[39m
-              [33mclass[39m=[32m"introduction"[39m
-            [36m>[39m
-              [0mHere you will be able to create a custom degree plan for yourself. Press Edit Semester to add the classes you are currently in or have previously taken, and then press add semester to get started creating your full degree plan![0m
-            [36m</p>[39m
-          [36m</div>[39m
-          [36m<p[39m
-            [33mclass[39m=[32m"semester_title"[39m
-          [36m>[39m
-            [0mFall (year) Semester[0m
-          [36m</p>[39m
-          [36m<div>[39m
-            [36m<button[39m
-              [33mclass[39m=[32m"btn btn-primary"[39m
-              [33mtype[39m=[32m"button"[39m
-            [36m>[39m
-              [0mAdd Semester[0m
-            [36m</button>[39m
-          [36m</div>[39m
-        [36m</div>[39m
-      [36m</div>[39m
-    [36m</body>[39m
+    Out of the box Jest supports Babel, which will be used to transform your files into valid JS based on your Babel configuration.
 
-       5 | test("renders the course name somewhere", () => {
-       6 |     render(<App />);
-    >  7 |     const linkElement = screen.getByText(/CISC275/i);
-         |                                ^
-       8 |     expect(linkElement).toBeInTheDocument();
-       9 | });
-      10 |
+    By default "node_modules" folder is ignored by transformers.
 
-      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:38:19)
-      at node_modules/@testing-library/dom/dist/query-helpers.js:90:38
-      at node_modules/@testing-library/dom/dist/query-helpers.js:62:17
-      at getByText (node_modules/@testing-library/dom/dist/query-helpers.js:111:19)
-      at Object.<anonymous> (src/App.test.tsx:7:32)
-      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
-      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
-      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
-      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+    Here's what you can do:
+     • If you are trying to use ECMAScript Modules, see https://jestjs.io/docs/ecmascript-modules for how to enable it.
+     • If you are trying to use TypeScript, see https://jestjs.io/docs/getting-started#using-typescript
+     • To have some of your "node_modules" files transformed, you can specify a custom "transformIgnorePatterns" in your config.
+     • If you need a custom transformation specify a "transform" option in your config.
+     • If you simply want to mock your non-JS modules (e.g. binary assets) you can stub them out with the "moduleNameMapper" config option.
 
-----------------------|---------|----------|---------|---------|-------------------
-File                  | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
-----------------------|---------|----------|---------|---------|-------------------
-All files             |   22.22 |     12.5 |    9.37 |   22.85 |                   
- src                  |   42.85 |       25 |   16.66 |      50 |                   
-  App.tsx             |   42.85 |       25 |   16.66 |      50 | 18-27             
- src/Interfaces       |     100 |      100 |     100 |     100 |                   
-  course.ts           |       0 |        0 |       0 |       0 |                   
-  origionalPlan.ts    |     100 |      100 |     100 |     100 |                   
-  plan.ts             |       0 |        0 |       0 |       0 |                   
-  semester.ts         |       0 |        0 |       0 |       0 |                   
- src/components       |   15.78 |        0 |    7.69 |   15.78 |                   
-  AddFormSemester.tsx |       0 |      100 |       0 |       0 | 8-101             
-  AddPlan.tsx         |      40 |      100 |   33.33 |      40 | 18-19,38          
-  AddSemester.tsx     |   23.33 |        0 |    9.09 |   23.33 | 23-113,123-128    
-  AddTable.tsx        |       0 |      100 |       0 |       0 | 11-50             
-  DisplayPlan.tsx     |       0 |        0 |       0 |       0 | 17-27             
-----------------------|---------|----------|---------|---------|-------------------
+    You'll find more details and examples of these config options in the docs:
+    https://jestjs.io/docs/configuration
+    For information about custom transformations, see:
+    https://jestjs.io/docs/code-transformation
+
+    Details:
+
+    /home/runner/work/cis-scheduler-team-20/cis-scheduler-team-20/node_modules/react-bootstrap/esm/ModalHeader.js:1
+    ({"Object.<anonymous>":function(module,exports,require,__dirname,__filename,jest){import classNames from 'classnames';
+                                                                                      ^^^^^^
+
+    SyntaxError: Cannot use import statement outside a module
+
+      2 | //import { Semester } from "../Interfaces/semester";
+      3 | import { Button, Col, Form, Modal, ModalTitle, Row } from "react-bootstrap";
+    > 4 | import ModalHeader from "react-bootstrap/esm/ModalHeader";
+        | ^
+      5 |
+      6 | export function InsertSemesterModal({
+      7 |     showModal,
+
+      at Runtime.createScriptFromCode (node_modules/jest-runtime/build/index.js:1728:14)
+      at Object.<anonymous> (src/components/InsertSemester.tsx:4:1)
+
+---------------------------|---------|----------|---------|---------|-------------------
+File                       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+---------------------------|---------|----------|---------|---------|-------------------
+All files                  |       0 |        0 |       0 |       0 |                   
+ src                       |       0 |        0 |       0 |       0 |                   
+  App.tsx                  |       0 |        0 |       0 |       0 | 13-39             
+ src/Interfaces            |       0 |      100 |     100 |       0 |                   
+  course.ts                |       0 |        0 |       0 |       0 |                   
+  listOfPlans.ts           |       0 |      100 |     100 |       0 | 4                 
+  origionalPlan.ts         |       0 |      100 |     100 |       0 | 3                 
+  plan.ts                  |       0 |        0 |       0 |       0 |                   
+  semester.ts              |       0 |        0 |       0 |       0 |                   
+ src/components            |       0 |        0 |       0 |       0 |                   
+  AddCourseButton.tsx      |       0 |      100 |       0 |       0 | 17-21             
+  AddCourseToSemester.tsx  |       0 |        0 |       0 |       0 | 22-143            
+  AddFormSemester.tsx      |       0 |      100 |       0 |       0 | 9-38              
+  AddPlan.tsx              |       0 |      100 |       0 |       0 | 15-38             
+  AddSemester.tsx          |       0 |        0 |       0 |       0 | 8-128             
+  AddSemesterToPlan.tsx    |       0 |      100 |       0 |       0 | 7-93              
+  AddTable.tsx             |       0 |      100 |       0 |       0 | 11-50             
+  ClearSemesterButton.tsx  |       0 |      100 |       0 |       0 | 16-20             
+  CourseModal.tsx          |       0 |      100 |       0 |       0 | 22                
+  CourseTable.tsx          |       0 |        0 |       0 |       0 | 29-55             
+  DeleteCourseButton.tsx   |       0 |      100 |       0 |       0 | 18-22             
+  DeleteSemesterButton.tsx |       0 |      100 |       0 |       0 | 12-14             
+  DisplayPlan.tsx          |       0 |        0 |       0 |       0 | 17-27             
+  EditCourseButton.tsx     |       0 |      100 |       0 |       0 | 21-25             
+  EditCourseInModal.tsx    |       0 |      100 |       0 |       0 | 22                
+  InsertSemester.tsx       |       0 |        0 |       0 |       0 | 13-44             
+  SemesterTable.tsx        |       0 |      100 |       0 |       0 | 41-47             
+---------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
-Tests:       1 failed, 1 total
+Tests:       0 total
 Snapshots:   0 total
-Time:        3.276 s
+Time:        3.09 s
 Ran all test suites.
