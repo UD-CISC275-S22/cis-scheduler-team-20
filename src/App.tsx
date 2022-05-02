@@ -7,7 +7,11 @@ import { Plan } from "./Interfaces/plan";
 import { AddPlan } from "./components/AddPlan";
 import { Button } from "react-bootstrap";
 import { DisplayPlan } from "./components/DisplayPlan";
+<<<<<<< HEAD
+import { AddSemesterToPlan } from "./components/AddSemesterToPlan";
+=======
 import { InsertSemesterModal } from "./components/InsertSemester";
+>>>>>>> a7d8ec61d54eb2d848c4f4027cd3398880564c88
 
 function App(): JSX.Element {
     const [show, setShow] = useState<boolean>(false);
@@ -64,7 +68,7 @@ function App(): JSX.Element {
                 <p className="semester_title">Fall (year) Semester</p>
                 {visible && <DisplayPlan plan={plans}></DisplayPlan>}
                 <AddSemester></AddSemester>
-                {/*<AddFormSemester></AddFormSemester>*/}
+                <AddSemesterToPlan></AddSemesterToPlan>
                 <AddPlan close={dontShow} plan={addPlan} show={show}></AddPlan>
 
                 <Button
