@@ -13,7 +13,7 @@ interface addCourseProp {
     closeModal: () => void;
 }
 
-export function AddCourseToSemester({
+export function AddCoursetoSemester({
     semesterID,
     courseAdder,
     closeModal
