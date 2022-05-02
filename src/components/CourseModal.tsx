@@ -1,9 +1,9 @@
 import React from "react";
 import { Modal, ModalTitle } from "react-bootstrap";
 import ModalHeader from "react-bootstrap/esm/ModalHeader";
-import { AddCourseToSemester } from "./AddCoursetoSemester";
 import { Course } from "../Interfaces/course";
 import { Semester } from "../Interfaces/semester";
+import { AddCourseToSemester } from "./AddCourseToSemester";
 
 //holds the modal and brings up the AddCourseToSemester UI in a pop-up window
 //
