@@ -5,6 +5,7 @@ import { Course } from "../Interfaces/course";
 import { Semester } from "../Interfaces/semester";
 import { AddCourseToSemester } from "./AddCourseToSemester";
 
+
 //holds the modal and brings up the AddCourseToSemester UI in a pop-up window
 //
 
@@ -27,11 +28,11 @@ export function AddCourseModal({
                 </ModalTitle>
             </ModalHeader>
             <Modal.Body>
-                <AddCourseToSemester
+                <AddCoursetoSemester
                     semesterID={semester.id}
                     courseAdder={courseAdder}
                     closeModal={closeModal}
-                ></AddCourseToSemester>
+                ></AddCoursetoSemester>
             </Modal.Body>
             <Modal.Footer></Modal.Footer>
         </Modal>
