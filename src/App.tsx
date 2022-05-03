@@ -64,7 +64,6 @@ function App(): JSX.Element {
                 <p className="semester_title">Fall (year) Semester</p>
                 {visible && <DisplayPlan plan={plans}></DisplayPlan>}
                 <AddSemester></AddSemester>
-                {/*<AddFormSemester></AddFormSemester>*/}
                 <AddPlan close={dontShow} plan={addPlan} show={show}></AddPlan>
 
                 <Button
