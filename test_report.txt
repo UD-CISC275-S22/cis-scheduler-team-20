@@ -33,16 +33,16 @@ FAIL src/App.test.tsx
 
     SyntaxError: Cannot use import statement outside a module
 
-      2 | //import { Semester } from "../Interfaces/semester";
-      3 | import { Button, Col, Form, Modal, ModalTitle, Row } from "react-bootstrap";
-    > 4 | import ModalHeader from "react-bootstrap/esm/ModalHeader";
+      3 | import { AddSemester } from "./AddSemester";
+      4 | import { Button, Col, Form, Modal, ModalTitle, Row } from "react-bootstrap";
+    > 5 | import ModalHeader from "react-bootstrap/esm/ModalHeader";
         | ^
-      5 |
-      6 | export function InsertSemesterModal({
-      7 |     showModal,
+      6 |
+      7 | export function InsertSemesterModal({
+      8 |     showModal,
 
       at Runtime.createScriptFromCode (node_modules/jest-runtime/build/index.js:1728:14)
-      at Object.<anonymous> (src/components/InsertSemester.tsx:4:1)
+      at Object.<anonymous> (src/components/InsertSemester.tsx:5:1)
 
 ---------------------------|---------|----------|---------|---------|-------------------
 File                       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
@@ -72,11 +72,11 @@ All files                  |       0 |        0 |       0 |       0 |
   DisplayPlan.tsx          |       0 |        0 |       0 |       0 | 21-102            
   EditCourseButton.tsx     |       0 |      100 |       0 |       0 | 21-25             
   EditCourseInModal.tsx    |       0 |      100 |       0 |       0 | 22                
-  InsertSemester.tsx       |       0 |        0 |       0 |       0 | 13-44             
+  InsertSemester.tsx       |       0 |        0 |       0 |       0 | 14-45             
   SemesterTable.tsx        |       0 |      100 |       0 |       0 | 41-53             
 ---------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        3.151 s
+Time:        3.235 s
 Ran all test suites.
