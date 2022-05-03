@@ -1,5 +1,5 @@
-import React from "react";
-import { Col, Row } from "react-bootstrap";
+import React, { useState } from "react";
+import { Button, Col, Row } from "react-bootstrap";
 import { Course } from "../Interfaces/course";
 import { Plan } from "../Interfaces/plan";
 import { Semester } from "../Interfaces/semester";
@@ -7,6 +7,7 @@ import { AddCourseButton } from "./AddCourseButton";
 import { ClearSemesterButton } from "./ClearSemesterButton";
 import { CourseTable } from "./CourseTable";
 import { DeleteSemesterButton } from "./DeleteSemesterButton";
+import { InsertSemesterModal } from "./InsertSemester";
 
 /** Takes in a Plan and maps the semesters in the plan to a list of semesters. Each semester gets passed
  * into a CourseTable
@@ -38,6 +39,9 @@ export function SemesterTable({
     ) => void;
     moveCourseToPool: (courseToMove: Course, fromSemester: Semester) => void;
 }): JSX.Element {
+    const [visible, setVisible] = useState<boolean>(false);
+    const trueVisible = () => setVisible(true);
+    const falseVisible = () => setVisible(false);
     return (
         <div>
             <h4>{`${plan.name}'s Semesters`}</h4>
@@ -78,6 +82,18 @@ export function SemesterTable({
                                     semesterId={semester.id}
                                     deleteSemester={deleteSemester}
                                 ></DeleteSemesterButton>
+                            </Col>
+                            <Col>
+                                <Button
+                                    onClick={trueVisible}
+                                    data-testid="add_semester_button"
+                                >
+                                    Add Semester 1
+                                </Button>
+                                <InsertSemesterModal
+                                    showModal={visible}
+                                    closeModal={falseVisible}
+                                ></InsertSemesterModal>
                             </Col>
                         </Row>
                     </li>

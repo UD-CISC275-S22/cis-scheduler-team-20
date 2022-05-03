@@ -208,9 +208,7 @@ export function AddCoursetoSemester({
                     >
                         Add Course
                     </Button>
-                    <div>
-                        {!checkCodeField() && <div>Please Fill All Fields</div>}
-                    </div>
+                    <div>{!checkCodeField() && <div></div>}</div>
                 </Col>
             </Row>
         </div>
