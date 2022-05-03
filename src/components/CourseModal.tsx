@@ -6,7 +6,7 @@ import { Semester } from "../Interfaces/semester";
 import { AddCoursetoSemester } from "./AddCourseToSemester";
 
 //holds the modal and brings up the AddCourseToSemester UI in a pop-up window
-//
+//Wee
 
 export function AddCourseModal({
     showModal,
