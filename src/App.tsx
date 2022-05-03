@@ -5,7 +5,7 @@ import { AddSemester } from "./components/AddSemester";
 //import { AddFormSemester } from "./components/AddFormSemester";
 import { Plan } from "./Interfaces/plan";
 import { AddPlan } from "./components/AddPlan";
-import { Button } from "react-bootstrap";
+import { Button, Col, Row } from "react-bootstrap";
 import { DisplayPlan } from "./components/DisplayPlan";
 import { InsertSemesterModal } from "./components/InsertSemester";
 import { SemesterTable } from "./components/SemesterTable";
@@ -156,6 +156,15 @@ function App(): JSX.Element {
                     moveCourse={moveCourse}
                     moveCourseToPool={moveCourseToPool}
                 ></SemesterTable>
+                <div>
+                    {origionalPlan.semesters.map((sem: Semester) =>
+                        sem.classes.map((clas: Course) => (
+                            <Row key={clas.code}>
+                                <Col>{clas.code}</Col>
+                            </Row>
+                        ))
+                    )}
+                </div>
             </div>
         </>
     );
