@@ -8,6 +8,10 @@ import { AddPlan } from "./components/AddPlan";
 import { Button } from "react-bootstrap";
 import { DisplayPlan } from "./components/DisplayPlan";
 import { InsertSemesterModal } from "./components/InsertSemester";
+import { SemesterTable } from "./components/SemesterTable";
+import { origionalPlan } from "./Interfaces/origionalPlan";
+import { Course } from "./Interfaces/course";
+import { Semester } from "./Interfaces/semester";
 
 function App(): JSX.Element {
     const [show, setShow] = useState<boolean>(false);
@@ -15,6 +19,72 @@ function App(): JSX.Element {
     const [plans, setPlans] = useState<Plan[]>([]);
     const showModal = () => setShow(true);
     const dontShow = () => setShow(false);
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    function clearSem(planID: number, semYear: number, semSeas: string): void {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const a = 1;
+    }
+    function deleteSemester(semesterId: string): void {
+        origionalPlan.semesters.splice(
+            origionalPlan.semesters.findIndex(
+                (sem: Semester): boolean => sem.id === semesterId
+            ),
+            1
+        );
+    }
+    function courseAdder(newCourse: Course, semID: string): void {
+        const ind = origionalPlan.semesters.findIndex(
+            (sem: Semester): boolean => sem.id === semID
+        );
+        origionalPlan.semesters[ind].classes = [
+            ...origionalPlan.semesters[ind].classes,
+            newCourse
+        ];
+    }
+    function delCourseFunct(code: string, semID: string): void {
+        const ind = origionalPlan.semesters.findIndex(
+            (sem: Semester): boolean => sem.id === semID
+        );
+        origionalPlan.semesters[ind].classes.splice(
+            origionalPlan.semesters[ind].classes.findIndex(
+                (clas: Course): boolean => clas.code === code
+            ),
+            1
+        );
+    }
+    function editCourseFunct(
+        oldCourse: Course,
+        newCourse: Course,
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        semID: string
+    ): void {
+        oldCourse = newCourse;
+    }
+    function moveCourse(
+        courseToMove: Course,
+        fromSemester: Semester,
+        toSemester: Semester
+    ): void {
+        fromSemester.classes.splice(
+            fromSemester.classes.findIndex(
+                (clas: Course): boolean => clas === courseToMove
+            ),
+            1
+        );
+        toSemester.classes = [...toSemester.classes, courseToMove];
+    }
+    function moveCourseToPool(
+        courseToMove: Course,
+        fromSemester: Semester
+    ): void {
+        fromSemester.classes.splice(
+            fromSemester.classes.findIndex(
+                (clas: Course): boolean => clas === courseToMove
+            ),
+            1
+        );
+    }
 
     // State that handles add semester modal
     const [showTheModal, setShowModal] = useState<boolean>(false);
@@ -76,6 +146,16 @@ function App(): JSX.Element {
                     showModal={showTheModal}
                     closeModal={handleCloseInsertSemesterModal}
                 ></InsertSemesterModal>
+                <SemesterTable
+                    plan={origionalPlan}
+                    clearSem={clearSem}
+                    deleteSemester={deleteSemester}
+                    courseAdder={courseAdder}
+                    delCourseFunct={delCourseFunct}
+                    editCourseFunct={editCourseFunct}
+                    moveCourse={moveCourse}
+                    moveCourseToPool={moveCourseToPool}
+                ></SemesterTable>
             </div>
         </>
     );
