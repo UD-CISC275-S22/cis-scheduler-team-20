@@ -20,7 +20,9 @@ export function AddCourseButton({
 
     return (
         <div>
-            <Button onClick={handleShowAddCourseModal}>Add a New Course</Button>
+            <Button background-color="green" onClick={handleShowAddCourseModal}>
+                Add New Course
+            </Button>
             <AddCourseModal
                 showModal={showModal}
                 semester={semester}

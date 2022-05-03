@@ -145,45 +145,37 @@ export function AddCoursetoSemester({
             <Row>
                 <Col>
                     <Form.Group>
-                        <Form.Label>
-                            Course Department Here (i.e., CISC181, CISC220):
-                        </Form.Label>
+                        <Form.Label>Enter Course Code Here: </Form.Label>
                         <Form.Control
                             type="text"
-                            placeholder="Enter Department Code"
+                            placeholder="For Exp. CISC275"
                             value={codeBox}
                             onChange={updateCodeBox}
                             data-testid="add_course_department"
                         />
                     </Form.Group>
                     <Form.Group>
-                        <Form.Label>
-                            Course Name Here (i.e., Intro to Software
-                            Engineering):
-                        </Form.Label>
+                        <Form.Label>Enter Course Name Here: </Form.Label>
                         <Form.Control
                             type="text"
-                            placeholder="Enter Course Name"
                             value={nameBox}
                             onChange={updateName}
                             data-testid="add_course_name"
                         />
                     </Form.Group>
                     <Form.Group>
-                        <Form.Label>Course Credits here:</Form.Label>
+                        <Form.Label>Enter Course Credits Here: </Form.Label>
                         <Form.Control
                             type="text"
-                            placeholder="Enter Number of Credits"
                             value={creditBox}
                             onChange={updateCredits}
                             data-testid="add_course_credits"
                         />
                     </Form.Group>
                     <Form.Group>
-                        <Form.Label>Course Description here:</Form.Label>
+                        <Form.Label>Enter Course Description Here: </Form.Label>
                         <Form.Control
                             type="text"
-                            placeholder="Enter Course Description"
                             value={descrBox}
                             onChange={updateDescription}
                             data-testid="add_course_description"
@@ -192,12 +184,9 @@ export function AddCoursetoSemester({
                 </Col>
                 <Col>
                     <Form.Group>
-                        <Form.Label>
-                            Enter Prerequisites Here: (i.e., CISC181, CISC220)
-                        </Form.Label>
+                        <Form.Label>Enter Prerequisites Here: </Form.Label>
                         <Form.Control
                             type="text"
-                            placeholder="Enter Prerequisite Here"
                             value={reqBox}
                             onChange={updateRequirements}
                             data-testid="add_course_prereq"
@@ -213,11 +202,11 @@ export function AddCoursetoSemester({
                 </Col>
                 <Col>
                     <Button
-                        disabled={!checkCodeField()}
+                        //disabled={!checkCodeField()}
                         onClick={addCourse}
                         data-testid="add_course_button"
                     >
-                        Add Course to Plan
+                        Add Course
                     </Button>
                     <div>
                         {!checkCodeField() && <div>Please Fill All Fields</div>}

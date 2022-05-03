@@ -42,7 +42,7 @@ export function AddSemester(): JSX.Element {
         clone.id = "a" + courseNum;
         table.appendChild(clone);
     }
-    function insertSemester(): void {
+    function InsertSemester(): void {
         setCourseNum(courseNum + 1);
         setSemesterNum(semesterNum + 1);
         setIndNum(indnum + 1);
@@ -121,7 +121,7 @@ export function AddSemester(): JSX.Element {
         <>
             <div>
                 {semesters.map((semester: ReactElement) => semester)}
-                <Button onClick={insertSemester}>Add Semester</Button>
+                <Button onClick={InsertSemester}>Add Semester</Button>
             </div>
         </>
     );
