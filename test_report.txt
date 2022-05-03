@@ -49,7 +49,7 @@ File                       | % Stmts | % Branch | % Funcs | % Lines | Uncovered 
 ---------------------------|---------|----------|---------|---------|-------------------
 All files                  |       0 |        0 |       0 |       0 |                   
  src                       |       0 |        0 |       0 |       0 |                   
-  App.tsx                  |       0 |        0 |       0 |       0 | 17-109            
+  App.tsx                  |       0 |        0 |       0 |       0 | 17-36             
  src/Interfaces            |       0 |      100 |     100 |       0 |                   
   course.ts                |       0 |        0 |       0 |       0 |                   
   listOfPlans.ts           |       0 |      100 |     100 |       0 | 4                 
@@ -69,14 +69,14 @@ All files                  |       0 |        0 |       0 |       0 |
   CourseTable.tsx          |       0 |        0 |       0 |       0 | 29-55             
   DeleteCourseButton.tsx   |       0 |      100 |       0 |       0 | 18-22             
   DeleteSemesterButton.tsx |       0 |      100 |       0 |       0 | 12-14             
-  DisplayPlan.tsx          |       0 |        0 |       0 |       0 | 17-27             
+  DisplayPlan.tsx          |       0 |        0 |       0 |       0 | 21-102            
   EditCourseButton.tsx     |       0 |      100 |       0 |       0 | 21-25             
   EditCourseInModal.tsx    |       0 |      100 |       0 |       0 | 22                
   InsertSemester.tsx       |       0 |        0 |       0 |       0 | 13-44             
-  SemesterTable.tsx        |       0 |      100 |       0 |       0 | 41-47             
+  SemesterTable.tsx        |       0 |      100 |       0 |       0 | 41-53             
 ---------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        3.376 s
+Time:        3.151 s
 Ran all test suites.
