@@ -24,7 +24,7 @@ function App(): JSX.Element {
     const handleCloseInsertSemesterModal = () => setShowModal(false);
 
     function changeVisibilty(): void {
-        setVisible(!visible);
+        setVisible(true);
         showModal();
     }
 
