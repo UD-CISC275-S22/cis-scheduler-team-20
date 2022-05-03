@@ -13,6 +13,7 @@ import { DeleteSemesterButton } from "./DeleteSemesterButton";
  */
 export function SemesterTable({
     plan,
+    semester,
     clearSem,
     deleteSemester,
     courseAdder,
@@ -22,6 +23,7 @@ export function SemesterTable({
     moveCourseToPool
 }: {
     plan: Plan;
+    semester: Semester[];
     clearSem: (planID: number, semYear: number, semSeas: string) => void;
     deleteSemester: (semesterId: string) => void;
     courseAdder: (newCourse: Course, semID: string) => void;
@@ -49,7 +51,7 @@ export function SemesterTable({
                     alignItems: "right"
                 }}
             >
-                {plan.semesters.map((semester: Semester) => (
+                {semester.map((semester: Semester) => (
                     <li key={semester.id}>
                         <CourseTable
                             semester={semester}
