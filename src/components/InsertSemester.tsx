@@ -2,16 +2,30 @@ import React, { useState } from "react";
 //import { Semester } from "../Interfaces/semester";
 import { Button, Col, Form, Modal, ModalTitle, Row } from "react-bootstrap";
 import ModalHeader from "react-bootstrap/esm/ModalHeader";
+import { Semester } from "../Interfaces/semester";
 
 export function InsertSemesterModal({
     showModal,
-    closeModal
+    closeModal,
+    semester
 }: {
+    semester: (newSemester: Semester) => void;
     showModal: boolean;
     closeModal: () => void;
 }): JSX.Element {
     const [year, setYear] = useState<number>(2022);
     const [season, setSeason] = useState<string>("Fall");
+
+    function save() {
+        semester({
+            id: " ",
+            year: year,
+            season: season,
+            classes: [],
+            credits: 0
+        });
+        closeModal();
+    }
 
     return (
         <Modal show={showModal} onHide={closeModal} animation={false}>
@@ -55,6 +69,7 @@ export function InsertSemesterModal({
                 <Button variant="secondary" onClick={closeModal}>
                     Close
                 </Button>
+                <Button onClick={save}>save</Button>
             </Modal.Footer>
         </Modal>
     );
