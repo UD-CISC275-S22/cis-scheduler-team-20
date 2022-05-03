@@ -19,7 +19,7 @@ export function DisplayPlan({
     //deletePlan: (name: string) => void;
 }): JSX.Element {
     const [show, setShow] = useState<boolean>(false);
-
+    const [semesters, setSemesters] = useState<Semester[]>([]);
     const [visible, setVisible] = useState<boolean>(false);
 
     const trueVisible = () => setVisible(true);
@@ -94,6 +94,16 @@ export function DisplayPlan({
             1
         );
     }
+    function addSemester(newSemester: Semester) {
+        const exists = semesters.find(
+            (semester: Semester): boolean =>
+                semester.season === newSemester.season &&
+                semester.year === newSemester.year
+        );
+        if (exists === undefined) {
+            setSemesters([...semesters, newSemester]);
+        }
+    }
     return (
         <Container>
             <Row>
@@ -113,9 +123,11 @@ export function DisplayPlan({
                                     <InsertSemesterModal
                                         showModal={visible}
                                         closeModal={falseVisible}
+                                        semester={addSemester}
                                     ></InsertSemesterModal>
                                     <SemesterTable
                                         plan={origionalPlan}
+                                        semester={semesters}
                                         clearSem={clearSem}
                                         deleteSemester={deleteSemester}
                                         courseAdder={courseAdder}
