@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 //import { Semester } from "../Interfaces/semester";
+import { AddSemester } from "./AddSemester";
 import { Button, Col, Form, Modal, ModalTitle, Row } from "react-bootstrap";
 import ModalHeader from "react-bootstrap/esm/ModalHeader";
 
@@ -54,6 +55,9 @@ export function InsertSemesterModal({
             <Modal.Footer>
                 <Button variant="secondary" onClick={closeModal}>
                     Close
+                </Button>
+                <Button variant="primarmy" onClick={AddSemester}>
+                    Add Semester
                 </Button>
             </Modal.Footer>
         </Modal>
