@@ -42,7 +42,13 @@ export function SemesterTable({
         <div>
             <h4>{`${plan.name}'s Semesters`}</h4>
 
-            <ul style={{ paddingLeft: "0", listStyle: "none" }}>
+            <ul
+                style={{
+                    listStyle: "none",
+                    position: "absolute",
+                    alignItems: "right"
+                }}
+            >
                 {plan.semesters.map((semester: Semester) => (
                     <li key={semester.id}>
                         <CourseTable
