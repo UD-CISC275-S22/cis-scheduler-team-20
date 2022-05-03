@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { Plan } from "../Interfaces/plan";
-import { AddFormSemester } from "./AddFormSemester";
+import { InsertSemesterModal } from "./InsertSemester";
 
 export function DisplayPlan({
     plan
@@ -16,8 +16,13 @@ export function DisplayPlan({
 }): JSX.Element {
     const [show, setShow] = useState<boolean>(false);
 
+    const [visible, setVisible] = useState<boolean>(false);
+
+    const trueVisible = () => setVisible(true);
+    const falseVisible = () => setVisible(false);
+
     function changeShow(): void {
-        setShow(!show);
+        setShow(!visible);
     }
     return (
         <Container>
@@ -29,7 +34,16 @@ export function DisplayPlan({
                             <Button onClick={changeShow}>View Plan</Button>
                             {show && (
                                 <Col>
-                                    <AddFormSemester></AddFormSemester>
+                                    <Button
+                                        onClick={trueVisible}
+                                        data-testid="add_semester_button"
+                                    >
+                                        Add Semester 1
+                                    </Button>
+                                    <InsertSemesterModal
+                                        showModal={visible}
+                                        closeModal={falseVisible}
+                                    ></InsertSemesterModal>
                                 </Col>
                             )}
                         </>
