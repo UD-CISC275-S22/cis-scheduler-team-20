@@ -44,8 +44,8 @@ export function CourseTable({
                 <Table striped bordered hover>
                     <thead>
                         <tr>
+                            <th>Code</th>
                             <th>Credits</th>
-                            <th>Course Number</th>
                             <th>Course Title</th>
                             <th>Edit</th>
                         </tr>

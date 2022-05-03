@@ -14,7 +14,7 @@ export function AddFormSemester(): JSX.Element {
                         <Form.Group
                             key={sem.season + sem.year}
                             style={{
-                                border: "2px solid black",
+                                border: "1px solid black",
                                 backgroundColor: "LightBlue"
                             }}
                         >
