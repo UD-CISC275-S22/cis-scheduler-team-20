@@ -5,7 +5,7 @@ import { Course } from "../Interfaces/course";
 import { Semester } from "../Interfaces/semester";
 //import { EditCourseInSemester } from "./EditCourseInSemester";
 
-//holds the modal and brings up the AddCourseToSemester UI in a pop-up window
+//holds the modal and brings up the AddCourseToSemester UI in a modal window
 
 export function EditCourseModal({
     showModal,

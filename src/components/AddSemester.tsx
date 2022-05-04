@@ -4,6 +4,7 @@ import course_data from "../data/catalog.json";
 //import { origionalPlan } from "../Interfaces/origionalPlan";
 //import { Classes } from "../Interfaces/catalog";
 
+//old add semester file(switched due to mapping issues, will delete later)
 export function AddSemester(): JSX.Element {
     const [semesters, setSemesters] = useState<ReactElement[]>([]);
     const [delnum, setDelNum] = useState<number>(0);
