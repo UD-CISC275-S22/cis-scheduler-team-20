@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { origionalPlan } from "../Interfaces/origionalPlan";
 import { Button, Col, Form, Modal, Row } from "react-bootstrap";
 
+//Adds a semester to a specific plan
 export function InsertSemesterModal({
     showModal,
     closeModal

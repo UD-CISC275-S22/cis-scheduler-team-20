@@ -9,6 +9,7 @@ import { Semester } from "../Interfaces/semester";
 import { InsertSemesterModal } from "./InsertSemester";
 import { SemesterTable } from "./SemesterTable";
 
+//Funciton to display a plan on the screen
 export function DisplayPlan({
     plan
 }: //editPlan,

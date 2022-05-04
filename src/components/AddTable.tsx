@@ -1,6 +1,7 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 
+//Old table that caused us trouble(why we switched to form groups)
 interface Courses {
     name: string;
     course_name: string;

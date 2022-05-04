@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Form, Modal, Row, Button, Col } from "react-bootstrap";
 import { Plan } from "../Interfaces/plan";
 
+//Creates and adds a new plan
 export function AddPlan({
     close,
     plan,

@@ -2,7 +2,7 @@ import React from "react";
 import { Modal } from "react-bootstrap";
 import { Course } from "../Interfaces/course";
 import { Semester } from "../Interfaces/semester";
-import { AddCoursetoSemester } from "./AddCourseToSemester";
+import { AddCoursetoSemester } from "./AddCoursetoSemester";
 
 //holds the modal and brings up the AddCourseToSemester UI in a pop-up window
 //Wee

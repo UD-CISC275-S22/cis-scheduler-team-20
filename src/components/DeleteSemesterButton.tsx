@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "react-bootstrap";
+
 //Deletes the semester from the page
 export function DeleteSemesterButton({
     semesterId,
