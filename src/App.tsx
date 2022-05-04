@@ -47,7 +47,11 @@ function App(): JSX.Element {
                     </header>
                 </div>
                 <div>
-                    <Button className="plan" onClick={changeVisibilty}>
+                    <Button
+                        data-testid="createPlanButton"
+                        className="plan"
+                        onClick={changeVisibilty}
+                    >
                         Create Plan
                     </Button>
                     <p className="introduction">

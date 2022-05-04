@@ -102,7 +102,12 @@ export function DisplayPlan({
                     {plan.map((plan: Plan) => (
                         <>
                             <h1>{plan.name}</h1>
-                            <Button onClick={changeShow}>View Plan</Button>
+                            <Button
+                                data-testid="ViewPlanButton"
+                                onClick={changeShow}
+                            >
+                                View Plan
+                            </Button>
                             {show && (
                                 <Col>
                                     <Button

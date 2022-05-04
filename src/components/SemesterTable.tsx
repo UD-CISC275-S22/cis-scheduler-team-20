@@ -84,7 +84,7 @@ export function SemesterTable({
                             <Col>
                                 <Button
                                     onClick={trueVisible}
-                                    data-testid="add_semester_button"
+                                    data-testid="addSemesterButton"
                                 >
                                     Add Semester 1
                                 </Button>

@@ -204,7 +204,7 @@ export function AddCoursetoSemester({
                     <Button
                         //disabled={!checkCodeField()}
                         onClick={addCourse}
-                        data-testid="add_course_button"
+                        data-testid="saveCourseButton"
                     >
                         Add Course
                     </Button>

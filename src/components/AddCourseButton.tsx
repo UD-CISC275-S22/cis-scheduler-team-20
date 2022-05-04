@@ -21,6 +21,7 @@ export function AddCourseButton({
     return (
         <div>
             <Button
+                data-testid="addCourseButton"
                 style={{ backgroundColor: "green" }}
                 onClick={handleShowAddCourseModal}
             >
