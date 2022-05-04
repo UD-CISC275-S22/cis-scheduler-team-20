@@ -24,7 +24,12 @@ export function EditCourseButton({
 
     return (
         <div>
-            <Button onClick={handleShowEditCourseModal}>Edit</Button>
+            <Button
+                style={{ backgroundColor: "yellow", color: "black" }}
+                onClick={handleShowEditCourseModal}
+            >
+                Edit
+            </Button>
             <EditCourseModal
                 showModal={showModal}
                 semester={semester}

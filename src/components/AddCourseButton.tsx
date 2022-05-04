@@ -20,7 +20,11 @@ export function AddCourseButton({
 
     return (
         <div>
-            <Button background-color="green" onClick={handleShowAddCourseModal}>
+            <Button
+                data-testid="addCourseButton"
+                style={{ backgroundColor: "green" }}
+                onClick={handleShowAddCourseModal}
+            >
                 Add New Course
             </Button>
             <AddCourseModal

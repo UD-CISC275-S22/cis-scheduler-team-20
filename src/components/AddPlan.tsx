@@ -26,7 +26,11 @@ export function AddPlan({
             </Modal.Header>
             <Modal.Body>
                 {}
-                <Form.Group controlId="myGroup-1" as={Row}>
+                <Form.Group
+                    data-testid="planNameInputBox"
+                    controlId="myGroup-1"
+                    as={Row}
+                >
                     <Form.Label column sm={3}>
                         Plan Name:
                     </Form.Label>
@@ -42,7 +46,9 @@ export function AddPlan({
             </Modal.Body>
             <Modal.Footer>
                 <Button onClick={close}>Close</Button>
-                <Button onClick={save}>Save</Button>
+                <Button data-testid="SavePlanButton" onClick={save}>
+                    Save
+                </Button>
             </Modal.Footer>
         </Modal>
     );
