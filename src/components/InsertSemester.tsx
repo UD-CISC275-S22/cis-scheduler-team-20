@@ -5,6 +5,7 @@ import { Button, Col, Form, Modal, ModalTitle, Row } from "react-bootstrap";
 import ModalHeader from "react-bootstrap/esm/ModalHeader";
 import { origionalPlan } from "../Interfaces/origionalPlan";
 
+//Adds a semester to a specific plan
 export function InsertSemesterModal({
     showModal,
     closeModal

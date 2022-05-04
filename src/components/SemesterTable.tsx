@@ -9,9 +9,7 @@ import { CourseTable } from "./CourseTable";
 import { DeleteSemesterButton } from "./DeleteSemesterButton";
 import { InsertSemesterModal } from "./InsertSemester";
 
-/** Takes in a Plan and maps the semesters in the plan to a list of semesters. Each semester gets passed
- * into a CourseTable
- */
+// Takes in a Plan and maps the semesters in the plan to a list of semesters. Each semester gets passed into a CourseTable
 export function SemesterTable({
     plan,
     clearSem,
