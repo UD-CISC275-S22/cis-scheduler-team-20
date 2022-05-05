@@ -1,11 +1,10 @@
 import React from "react";
-import { Modal, ModalTitle } from "react-bootstrap";
-import ModalHeader from "react-bootstrap/esm/ModalHeader";
+import { Modal } from "react-bootstrap";
 import { Course } from "../Interfaces/course";
 import { Semester } from "../Interfaces/semester";
 //import { EditCourseInSemester } from "./EditCourseInSemester";
 
-//holds the modal and brings up the AddCourseToSemester UI in a pop-up window
+//holds the modal and brings up the AddCourseToSemester UI in a modal window
 
 export function EditCourseModal({
     showModal,
@@ -21,11 +20,11 @@ export function EditCourseModal({
 }): JSX.Element {
     return (
         <Modal show={showModal} onHide={closeModal} animation={false} size="lg">
-            <ModalHeader closeButton>
-                <ModalTitle>
+            <Modal.Header closeButton>
+                <Modal.Title>
                     Edit Course {course.code} in {semester.year}
-                </ModalTitle>
-            </ModalHeader>
+                </Modal.Title>
+            </Modal.Header>
             <Modal.Footer></Modal.Footer>
         </Modal>
     );

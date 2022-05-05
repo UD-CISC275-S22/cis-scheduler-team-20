@@ -18,7 +18,7 @@ export function AddCoursetoSemester({
     courseAdder,
     closeModal
 }: addCourseProp): JSX.Element {
-    //To start out gotta make sure they don't add any special characters
+    //To start out gotta make sure they don't add any special characters(Not active due to some errors)
     const specialCharacters = /[`!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?~]/;
 
     const [newCourse, setNewCourse] = useState<Course>({
@@ -204,7 +204,7 @@ export function AddCoursetoSemester({
                     <Button
                         //disabled={!checkCodeField()}
                         onClick={addCourse}
-                        data-testid="add_course_button"
+                        data-testid="saveCourseButton"
                     >
                         Add Course
                     </Button>

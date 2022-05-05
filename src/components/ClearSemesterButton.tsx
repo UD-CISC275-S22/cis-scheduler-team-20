@@ -18,7 +18,7 @@ export function ClearSemesterButton({
             <Button
                 disabled={thisSem.classes.length <= 0}
                 onClick={() => clearFunct(PlanID, thisSem.year, thisSem.season)}
-                data-testid="clear_semester_button"
+                data-testid="clearSemesterButton"
             >
                 Clear This Semester
             </Button>

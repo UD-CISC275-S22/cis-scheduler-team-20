@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-//import { Semester } from "../Interfaces/semester";
-//import { AddSemester } from "./AddSemester";
-import { Button, Col, Form, Modal, ModalTitle, Row } from "react-bootstrap";
-import ModalHeader from "react-bootstrap/esm/ModalHeader";
 import { origionalPlan } from "../Interfaces/origionalPlan";
+import { Button, Col, Form, Modal, Row } from "react-bootstrap";
 
+//Adds a semester to a specific plan
 export function InsertSemesterModal({
     showModal,
     closeModal
@@ -25,9 +23,9 @@ export function InsertSemesterModal({
     }
     return (
         <Modal show={showModal} onHide={closeModal} animation={false}>
-            <ModalHeader closeButton>
-                <ModalTitle>Add Semester</ModalTitle>
-            </ModalHeader>
+            <Modal.Header closeButton>
+                <Modal.Title>Add Semester</Modal.Title>
+            </Modal.Header>
             <Modal.Body>
                 <Form.Group controlId="formYear" as={Row}>
                     <Form.Label column sm={3}>
@@ -62,10 +60,18 @@ export function InsertSemesterModal({
                 </Form.Group>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="secondary" onClick={closeModal}>
+                <Button
+                    data-testid="closeSemesterButton"
+                    variant="secondary"
+                    onClick={closeModal}
+                >
                     Close
                 </Button>
-                <Button variant="primarmy" onClick={() => addSem(year, season)}>
+                <Button
+                    data-testid="saveSemesterButton"
+                    variant="primarmy"
+                    onClick={() => addSem(year, season)}
+                >
                     Add Semester
                 </Button>
             </Modal.Footer>

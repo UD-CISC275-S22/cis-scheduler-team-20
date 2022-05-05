@@ -7,6 +7,7 @@ import { DeleteCourseButton } from "./DeleteCourseButton";
 import { EditCourseButton } from "./EditCourseButton";
 //import { MoveCourseButton } from "./MoveCourseButton";
 
+//Creates the course table inside the semesters
 export function CourseTable({
     semester,
     delCourseFunct,

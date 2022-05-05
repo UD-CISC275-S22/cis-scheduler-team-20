@@ -4,7 +4,7 @@ import { Course } from "../Interfaces/course";
 import { Semester } from "../Interfaces/semester";
 import { EditCourseModal } from "./EditCourseInModal";
 
-//This handles the buttons to add a course to any given semester of the active course
+//This handles the buttons to add a course to any given semester of the active course(or so I beleive, little bug happening)
 
 interface EditButtonProp {
     semester: Semester;
