@@ -63,7 +63,12 @@ function App(): JSX.Element {
                     </p>
                 </div>
                 {/*<p className="semester_title">Fall (year) Semester</p>*/}
-                {visible && <DisplayPlan plan={plans}></DisplayPlan>}
+                {visible && (
+                    <DisplayPlan
+                        plans={plans}
+                        setPlans={setPlans}
+                    ></DisplayPlan>
+                )}
                 {/*<AddSemester></AddSemester>*/}
                 <AddPlan close={dontShow} plan={addPlan} show={show}></AddPlan>
             </div>
