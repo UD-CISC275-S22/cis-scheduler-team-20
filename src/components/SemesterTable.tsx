@@ -12,6 +12,8 @@ import { InsertSemesterModal } from "./InsertSemester";
 // Takes in a Plan and maps the semesters in the plan to a list of semesters. Each semester gets passed into a CourseTable
 export function SemesterTable({
     plan,
+    plans,
+    setPlans,
     clearSem,
     deleteSemester,
     courseAdder,
@@ -21,6 +23,8 @@ export function SemesterTable({
     moveCourseToPool
 }: {
     plan: Plan;
+    plans: Plan[];
+    setPlans: React.Dispatch<React.SetStateAction<Plan[]>>;
     clearSem: (planID: number, semYear: number, semSeas: string) => void;
     deleteSemester: (semesterId: string) => void;
     courseAdder: (newCourse: Course, semID: string) => void;
@@ -90,6 +94,9 @@ export function SemesterTable({
                                 <InsertSemesterModal
                                     showModal={visible}
                                     closeModal={falseVisible}
+                                    plan={plan}
+                                    plans={plans}
+                                    setPlans={setPlans}
                                 ></InsertSemesterModal>
                             </Col>
                         </Row>

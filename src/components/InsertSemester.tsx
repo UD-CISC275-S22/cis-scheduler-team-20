@@ -1,25 +1,39 @@
 import React, { useState } from "react";
-import { origionalPlan } from "../Interfaces/origionalPlan";
 import { Button, Col, Form, Modal, Row } from "react-bootstrap";
+import { Plan } from "../Interfaces/plan";
 
 //Adds a semester to a specific plan
 export function InsertSemesterModal({
     showModal,
-    closeModal
+    closeModal,
+    plan,
+    plans,
+    setPlans
 }: {
     showModal: boolean;
     closeModal: () => void;
+    plan: Plan;
+    plans: Plan[];
+    setPlans: React.Dispatch<React.SetStateAction<Plan[]>>;
 }): JSX.Element {
     const [year, setYear] = useState<number>(2022);
     const [season, setSeason] = useState<string>("Fall");
-    function addSem(yr: number, seas: string): void {
-        origionalPlan.semesters.splice(origionalPlan.semesters.length, 0, {
+    function addSem(
+        yr: number,
+        seas: string,
+        plann: Plan,
+        planns: Plan[],
+        setPlanns: React.Dispatch<React.SetStateAction<Plan[]>>
+    ): void {
+        plann.semesters.splice(plann.semesters.length, 0, {
             id: "1",
             year: yr,
             season: seas,
-            classes: [...origionalPlan.semesters[0].classes],
+            classes: [...plann.semesters[0].classes],
             credits: 3
         });
+        const ind = planns.findIndex((pln: Plan): boolean => pln === plann);
+        setPlanns(planns.splice(ind, 1, plann));
     }
     return (
         <Modal show={showModal} onHide={closeModal} animation={false}>
@@ -70,7 +84,7 @@ export function InsertSemesterModal({
                 <Button
                     data-testid="saveSemesterButton"
                     variant="primarmy"
-                    onClick={() => addSem(year, season)}
+                    onClick={() => addSem(year, season, plan, plans, setPlans)}
                 >
                     Add Semester
                 </Button>

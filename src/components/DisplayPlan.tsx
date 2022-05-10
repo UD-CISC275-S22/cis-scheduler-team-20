@@ -3,21 +3,17 @@
 import React, { useState } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { Course } from "../Interfaces/course";
-import { origionalPlan } from "../Interfaces/origionalPlan";
 import { Plan } from "../Interfaces/plan";
 import { Semester } from "../Interfaces/semester";
 import { InsertSemesterModal } from "./InsertSemester";
 import { SemesterTable } from "./SemesterTable";
-
 //Funciton to display a plan on the screen
 export function DisplayPlan({
-    plan
-}: //editPlan,
-//deletePlan
-{
-    plan: Plan[];
-    //editPlan: (name: string, newPlan: Plan) => void;
-    //deletePlan: (name: string) => void;
+    plans,
+    setPlans
+}: {
+    plans: Plan[];
+    setPlans: React.Dispatch<React.SetStateAction<Plan[]>>;
 }): JSX.Element {
     const [show, setShow] = useState<boolean>(false);
 
@@ -29,39 +25,61 @@ export function DisplayPlan({
     function changeShow(): void {
         setShow(!visible);
     }
-
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     function clearSem(planID: number, semYear: number, semSeas: string): void {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const a = 1;
     }
     function deleteSemester(semesterId: string): void {
-        origionalPlan.semesters.splice(
-            origionalPlan.semesters.findIndex(
+        const ind = plans.findIndex(
+            (plan: Plan): boolean =>
+                plan.semesters.findIndex(
+                    (sem: Semester): boolean => sem.id === semesterId
+                ) !== -1
+        );
+        const pln = plans[ind];
+        pln.semesters.splice(
+            pln.semesters.findIndex(
                 (sem: Semester): boolean => sem.id === semesterId
             ),
             1
         );
+        setPlans(plans.splice(ind, 1, pln));
     }
     function courseAdder(newCourse: Course, semID: string): void {
-        const ind = origionalPlan.semesters.findIndex(
+        const ind = plans.findIndex(
+            (plan: Plan): boolean =>
+                plan.semesters.findIndex(
+                    (sem: Semester): boolean => sem.id === semID
+                ) !== -1
+        );
+        const pln = plans[ind];
+        const inde = pln.semesters.findIndex(
             (sem: Semester): boolean => sem.id === semID
         );
-        origionalPlan.semesters[ind].classes = [
-            ...origionalPlan.semesters[ind].classes,
-            newCourse
-        ];
+        const sm = pln.semesters[inde];
+        sm.classes = [...sm.classes, newCourse];
+        pln.semesters.splice(inde, 1, sm);
+        setPlans(plans.splice(ind, 1, pln));
     }
     function delCourseFunct(code: string, semID: string): void {
-        const ind = origionalPlan.semesters.findIndex(
+        const ind = plans.findIndex(
+            (plan: Plan): boolean =>
+                plan.semesters.findIndex(
+                    (sem: Semester): boolean => sem.id === semID
+                ) !== -1
+        );
+        const pln = plans[ind];
+        const inde = pln.semesters.findIndex(
             (sem: Semester): boolean => sem.id === semID
         );
-        origionalPlan.semesters[ind].classes.splice(
-            origionalPlan.semesters[ind].classes.findIndex(
-                (clas: Course): boolean => clas.code === code
-            ),
+        const sm = pln.semesters[inde];
+        sm.classes.splice(
+            sm.classes.findIndex((clas: Course): boolean => clas.code === code),
             1
         );
+        pln.semesters.splice(ind, 1, sm);
+        setPlans(plans.splice(ind, 1, pln));
     }
     function editCourseFunct(
         oldCourse: Course,
@@ -99,7 +117,7 @@ export function DisplayPlan({
         <Container>
             <Row>
                 <Col>
-                    {plan.map((plan: Plan) => (
+                    {plans.map((plan: Plan) => (
                         <>
                             <h1>{plan.name}</h1>
                             <Button
@@ -119,9 +137,14 @@ export function DisplayPlan({
                                     <InsertSemesterModal
                                         showModal={visible}
                                         closeModal={falseVisible}
+                                        plan={plan}
+                                        plans={plans}
+                                        setPlans={setPlans}
                                     ></InsertSemesterModal>
                                     <SemesterTable
-                                        plan={origionalPlan}
+                                        plan={plan}
+                                        plans={plans}
+                                        setPlans={setPlans}
                                         clearSem={clearSem}
                                         deleteSemester={deleteSemester}
                                         courseAdder={courseAdder}
