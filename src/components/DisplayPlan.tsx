@@ -22,7 +22,7 @@ export function DisplayPlan({
     const [show, setShow] = useState<boolean>(false);
 
     const [visible, setVisible] = useState<boolean>(false);
-
+    const [semesters, setSemesters] = useState<Semester[]>([]);
     const trueVisible = () => setVisible(true);
     const falseVisible = () => setVisible(false);
 
@@ -95,6 +95,16 @@ export function DisplayPlan({
             1
         );
     }
+    function addSemester(newSemester: Semester) {
+        const exists = semesters.find(
+            (semester: Semester): boolean =>
+                semester.season === newSemester.season &&
+                semester.year === semester.year
+        );
+        if (exists === undefined) {
+            setSemesters([...semesters, newSemester]);
+        }
+    }
     return (
         <Container>
             <Row>
@@ -119,9 +129,11 @@ export function DisplayPlan({
                                     <InsertSemesterModal
                                         showModal={visible}
                                         closeModal={falseVisible}
+                                        semester={addSemester}
                                     ></InsertSemesterModal>
                                     <SemesterTable
-                                        plan={origionalPlan}
+                                        plan={plan}
+                                        semesters={semesters}
                                         clearSem={clearSem}
                                         deleteSemester={deleteSemester}
                                         courseAdder={courseAdder}
