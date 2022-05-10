@@ -11,6 +11,7 @@ import { InsertSemesterModal } from "./InsertSemester";
 
 // Takes in a Plan and maps the semesters in the plan to a list of semesters. Each semester gets passed into a CourseTable
 export function SemesterTable({
+    semesters,
     plan,
     clearSem,
     deleteSemester,
@@ -20,6 +21,7 @@ export function SemesterTable({
     moveCourse,
     moveCourseToPool
 }: {
+    semesters: Semester[];
     plan: Plan;
     clearSem: (planID: number, semYear: number, semSeas: string) => void;
     deleteSemester: (semesterId: string) => void;
@@ -51,7 +53,7 @@ export function SemesterTable({
                     alignItems: "right"
                 }}
             >
-                {plan.semesters.map((semester: Semester) => (
+                {semesters.map((semester: Semester) => (
                     <li key={semester.id}>
                         <CourseTable
                             semester={semester}
@@ -88,10 +90,6 @@ export function SemesterTable({
                                 >
                                     Add Semester 1
                                 </Button>
-                                <InsertSemesterModal
-                                    showModal={visible}
-                                    closeModal={falseVisible}
-                                ></InsertSemesterModal>
                             </Col>
                         </Row>
                     </li>
