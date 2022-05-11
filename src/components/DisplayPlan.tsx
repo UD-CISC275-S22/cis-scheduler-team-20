@@ -25,10 +25,21 @@ export function DisplayPlan({
     function changeShow(): void {
         setShow(!visible);
     }
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    function clearSem(planID: number, semYear: number, semSeas: string): void {
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const a = 1;
+    function clearSem(
+        planName: string,
+        semYear: number,
+        semSeas: string
+    ): void {
+        const ind = plans.findIndex(
+            (plan: Plan): boolean => plan.name === planName
+        );
+        const pln = plans[ind];
+        const inde = pln.semesters.findIndex(
+            (sem: Semester): boolean =>
+                sem.year === semYear && sem.season === semSeas
+        );
+        pln.semesters[inde].classes = [];
+        setPlans(plans.splice(ind, 1, pln));
     }
     function deleteSemester(semesterId: string): void {
         const ind = plans.findIndex(

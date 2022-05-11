@@ -25,7 +25,7 @@ export function SemesterTable({
     plan: Plan;
     plans: Plan[];
     setPlans: React.Dispatch<React.SetStateAction<Plan[]>>;
-    clearSem: (planID: number, semYear: number, semSeas: string) => void;
+    clearSem: (planName: string, semYear: number, semSeas: string) => void;
     deleteSemester: (semesterId: string) => void;
     courseAdder: (newCourse: Course, semID: string) => void;
     delCourseFunct: (code: string, semID: string) => void;
@@ -66,7 +66,7 @@ export function SemesterTable({
                         <Row>
                             <Col>
                                 <ClearSemesterButton
-                                    PlanID={plan.id}
+                                    PlanName={plan.name}
                                     thisSem={semester}
                                     clearFunct={clearSem}
                                 ></ClearSemesterButton>
