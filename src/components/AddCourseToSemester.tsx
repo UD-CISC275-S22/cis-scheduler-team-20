@@ -22,7 +22,7 @@ export function AddCoursetoSemester({
     const specialCharacters = /[`!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?~]/;
 
     const [newCourse, setNewCourse] = useState<Course>({
-        code: "",
+        code: "test",
         name: "",
         descr: "",
         credits: "",
@@ -56,16 +56,11 @@ export function AddCoursetoSemester({
 
     function updateCodeBox(event: ChangeEvent) {
         //updates the code state
-        if (event.target.value.length === 7) {
-            const code = event.target.value.substring(0, 4);
-            if (!specialCharacters.test(code.toString())) {
-                const newCode = {
-                    ...newCourse,
-                    courseCode: code
-                };
-                setNewCourse(newCode);
-            }
-        }
+        const newCode = {
+            ...newCourse,
+            code: event.target.value
+        };
+        setNewCourse(newCode);
         setCodeBox(event.target.value);
     }
 
