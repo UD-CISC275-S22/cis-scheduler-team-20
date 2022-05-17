@@ -1,24 +1,20 @@
 import React, { useState } from "react";
-import { Course } from "../Interfaces/course";
-//import course_data from "../data/catalog.json";
 import { Button, Col, Form, Row } from "react-bootstrap";
+import { Course } from "../Interfaces/course";
 
 type ChangeEvent = React.ChangeEvent<
     HTMLTextAreaElement | HTMLInputElement | HTMLSelectElement
 >;
 
-interface addCourseProp {
-    semesterID: string;
-    courseAdder: (newCourse: Course, ID: string) => void;
-    closeModal: () => void;
-}
-
-export function AddCoursetoSemester({
-    semesterID,
-    courseAdder,
-    closeModal
-}: addCourseProp): JSX.Element {
-    //To start out gotta make sure they don't add any special characters(Not active due to some errors)
+export function AddToCoursePool({
+    closeModal,
+    coursePool,
+    setCoursePool
+}: {
+    closeModal: React.Dispatch<React.SetStateAction<boolean>>;
+    coursePool: Course[];
+    setCoursePool: React.Dispatch<React.SetStateAction<Course[]>>;
+}): JSX.Element {
     const specialCharacters = /[`!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?~]/;
 
     const [newCourse, setNewCourse] = useState<Course>({
@@ -97,28 +93,6 @@ export function AddCoursetoSemester({
         }
     }
 
-    /*function remReq(courseName: string) {
-        //state setter for the course name
-        const rem = newCourse.preReq.filter(
-            (aCourse: string): boolean => aCourse !== courseName
-        );
-        const fixCourse = { ...newCourse, prereqs: [...rem] };
-        setNewCourse(fixCourse);
-        newPre([...rem]);
-    }
-
-    function isValidCode(): boolean {
-        //checks if the course code is a valid string for a course, i.e., CISC275
-        if (reqBox.length === 7) {
-            const dept = reqBox.substring(0, 4);
-            const code = reqBox.substring(4);
-            if (!specialCharacters.test(dept) && !isNaN(Number(code))) {
-                return true;
-            }
-        }
-        return false;
-    }*/
-
     function updateDescription(event: ChangeEvent) {
         //state setter for the course description
         if (event.target.value !== "") {
@@ -133,7 +107,7 @@ export function AddCoursetoSemester({
 
     function addCourse() {
         //adds the new course to the proper semeste
-        courseAdder(newCourse, semesterID);
+        setCoursePool([...coursePool, newCourse]);
     }
     return (
         <div>
@@ -191,7 +165,10 @@ export function AddCoursetoSemester({
             </Row>
             <Row>
                 <Col>
-                    <Button variant="secondary" onClick={closeModal}>
+                    <Button
+                        variant="secondary"
+                        onClick={() => closeModal(false)}
+                    >
                         Close
                     </Button>
                 </Col>

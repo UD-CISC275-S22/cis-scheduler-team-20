@@ -3,13 +3,13 @@ import { Button } from "react-bootstrap";
 import { Semester } from "../Interfaces/semester";
 //Button to clear the entire semester
 interface clearSemesterProp {
-    PlanID: number;
+    PlanName: string;
     thisSem: Semester;
-    clearFunct: (planID: number, semYear: number, semSeas: string) => void;
+    clearFunct: (planName: string, semYear: number, semSeas: string) => void;
 }
 
 export function ClearSemesterButton({
-    PlanID,
+    PlanName,
     thisSem,
     clearFunct
 }: clearSemesterProp) {
@@ -17,7 +17,9 @@ export function ClearSemesterButton({
         <div>
             <Button
                 disabled={thisSem.classes.length <= 0}
-                onClick={() => clearFunct(PlanID, thisSem.year, thisSem.season)}
+                onClick={() =>
+                    clearFunct(PlanName, thisSem.year, thisSem.season)
+                }
                 data-testid="clearSemesterButton"
             >
                 Clear This Semester

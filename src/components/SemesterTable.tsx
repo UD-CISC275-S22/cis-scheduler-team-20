@@ -11,8 +11,9 @@ import { InsertSemesterModal } from "./InsertSemester";
 
 // Takes in a Plan and maps the semesters in the plan to a list of semesters. Each semester gets passed into a CourseTable
 export function SemesterTable({
-    semesters,
     plan,
+    plans,
+    setPlans,
     clearSem,
     deleteSemester,
     courseAdder,
@@ -21,9 +22,10 @@ export function SemesterTable({
     moveCourse,
     moveCourseToPool
 }: {
-    semesters: Semester[];
     plan: Plan;
-    clearSem: (planID: number, semYear: number, semSeas: string) => void;
+    plans: Plan[];
+    setPlans: React.Dispatch<React.SetStateAction<Plan[]>>;
+    clearSem: (planName: string, semYear: number, semSeas: string) => void;
     deleteSemester: (semesterId: string) => void;
     courseAdder: (newCourse: Course, semID: string) => void;
     delCourseFunct: (code: string, semID: string) => void;
@@ -45,7 +47,6 @@ export function SemesterTable({
     return (
         <div>
             <h4>{`${plan.name}'s Semesters`}</h4>
-
             <ul
                 style={{
                     listStyle: "none",
@@ -53,7 +54,7 @@ export function SemesterTable({
                     alignItems: "right"
                 }}
             >
-                {semesters.map((semester: Semester) => (
+                {plan.semesters.map((semester: Semester) => (
                     <li key={semester.id}>
                         <CourseTable
                             semester={semester}
@@ -65,7 +66,7 @@ export function SemesterTable({
                         <Row>
                             <Col>
                                 <ClearSemesterButton
-                                    PlanID={plan.id}
+                                    PlanName={plan.name}
                                     thisSem={semester}
                                     clearFunct={clearSem}
                                 ></ClearSemesterButton>
@@ -90,6 +91,13 @@ export function SemesterTable({
                                 >
                                     Add Semester 1
                                 </Button>
+                                <InsertSemesterModal
+                                    showModal={visible}
+                                    closeModal={falseVisible}
+                                    planName={plan.name}
+                                    plans={plans}
+                                    setPlans={setPlans}
+                                ></InsertSemesterModal>
                             </Col>
                         </Row>
                     </li>
