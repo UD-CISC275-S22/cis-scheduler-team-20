@@ -67,12 +67,12 @@ All files                  |       0 |        0 |       0 |       0 |
   AddTable.tsx             |       0 |      100 |       0 |       0 | 12-51             
   AddToCoursePool.tsx      |       0 |        0 |       0 |       0 | 18-170            
   ClearSemesterButton.tsx  |       0 |      100 |       0 |       0 | 16-21             
-  CourseModal.tsx          |       0 |      100 |       0 |       0 | 22                
+  CourseModal.tsx          |       0 |      100 |       0 |       0 | 21                
   CoursePoolModal.tsx      |       0 |      100 |       0 |       0 | 16-19             
   CourseTable.tsx          |       0 |        0 |       0 |       0 | 30-56             
   DeleteCourseButton.tsx   |       0 |      100 |       0 |       0 | 18-22             
   DeleteSemesterButton.tsx |       0 |      100 |       0 |       0 | 13-15             
-  DisplayPlan.tsx          |       0 |        0 |       0 |       0 | 18-132            
+  DisplayPlan.tsx          |       0 |        0 |       0 |       0 | 17-127            
   EditCourseButton.tsx     |       0 |      100 |       0 |       0 | 21-25             
   EditCourseInModal.tsx    |       0 |      100 |       0 |       0 | 21                
   InsertSemester.tsx       |       0 |        0 |       0 |       0 | 19-91             
@@ -81,5 +81,5 @@ All files                  |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        3.553 s
+Time:        4.049 s
 Ran all test suites.
