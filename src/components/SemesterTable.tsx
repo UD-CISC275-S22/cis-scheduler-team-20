@@ -12,6 +12,8 @@ import { InsertSemesterModal } from "./InsertSemester";
 // Takes in a Plan and maps the semesters in the plan to a list of semesters. Each semester gets passed into a CourseTable
 export function SemesterTable({
     plan,
+    plans,
+    setPlans,
     clearSem,
     deleteSemester,
     courseAdder,
@@ -21,7 +23,9 @@ export function SemesterTable({
     moveCourseToPool
 }: {
     plan: Plan;
-    clearSem: (planID: number, semYear: number, semSeas: string) => void;
+    plans: Plan[];
+    setPlans: React.Dispatch<React.SetStateAction<Plan[]>>;
+    clearSem: (planName: string, semYear: number, semSeas: string) => void;
     deleteSemester: (semesterId: string) => void;
     courseAdder: (newCourse: Course, semID: string) => void;
     delCourseFunct: (code: string, semID: string) => void;
@@ -62,7 +66,7 @@ export function SemesterTable({
                         <Row>
                             <Col>
                                 <ClearSemesterButton
-                                    PlanID={plan.id}
+                                    PlanName={plan.name}
                                     thisSem={semester}
                                     clearFunct={clearSem}
                                 ></ClearSemesterButton>
@@ -85,11 +89,14 @@ export function SemesterTable({
                                     onClick={trueVisible}
                                     data-testid="addSemesterButton"
                                 >
-                                    Add Semester 1
+                                    Add Semester
                                 </Button>
                                 <InsertSemesterModal
                                     showModal={visible}
                                     closeModal={falseVisible}
+                                    planName={plan.name}
+                                    plans={plans}
+                                    setPlans={setPlans}
                                 ></InsertSemesterModal>
                             </Col>
                         </Row>

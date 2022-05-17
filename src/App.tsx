@@ -7,18 +7,22 @@ import { Plan } from "./Interfaces/plan";
 import { AddPlan } from "./components/AddPlan";
 import { Button } from "react-bootstrap";
 import { DisplayPlan } from "./components/DisplayPlan";
+import { Course } from "./Interfaces/course";
+import { CoursePool } from "./components/CoursePoolModal";
+import { AddCourseFromPool } from "./components/AddCourseFromPool";
 //import { InsertSemesterModal } from "./components/InsertSemester";
 //import { SemesterTable } from "./components/SemesterTable";
 //import { origionalPlan } from "./Interfaces/origionalPlan";
-//import { Course } from "./Interfaces/course";
 //import { Semester } from "./Interfaces/semester";
 
 function App(): JSX.Element {
     const [show, setShow] = useState<boolean>(false);
     const [visible, setVisible] = useState<boolean>(false);
     const [plans, setPlans] = useState<Plan[]>([]);
+    const [coursePool, setCoursePool] = useState<Course[]>([]);
     const showModal = () => setShow(true);
     const dontShow = () => setShow(false);
+    const falseVisible = () => setVisible(false);
 
     function changeVisibilty(): void {
         setVisible(true);
@@ -47,6 +51,19 @@ function App(): JSX.Element {
                     </header>
                 </div>
                 <div>
+                    <CoursePool
+                        closeModal={falseVisible}
+                        coursePool={coursePool}
+                        setCoursePool={setCoursePool}
+                    ></CoursePool>
+                    <AddCourseFromPool
+                        plans={plans}
+                        setPlans={setPlans}
+                        coursePool={coursePool}
+                        setCoursePool={setCoursePool}
+                    ></AddCourseFromPool>
+                </div>
+                <div>
                     <Button
                         data-testid="createPlanButton"
                         className="plan"
@@ -63,7 +80,12 @@ function App(): JSX.Element {
                     </p>
                 </div>
                 {/*<p className="semester_title">Fall (year) Semester</p>*/}
-                {visible && <DisplayPlan plan={plans}></DisplayPlan>}
+                {visible && (
+                    <DisplayPlan
+                        plans={plans}
+                        setPlans={setPlans}
+                    ></DisplayPlan>
+                )}
                 {/*<AddSemester></AddSemester>*/}
                 <AddPlan close={dontShow} plan={addPlan} show={show}></AddPlan>
             </div>
