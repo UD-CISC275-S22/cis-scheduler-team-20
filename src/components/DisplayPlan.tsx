@@ -5,7 +5,6 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 import { Course } from "../Interfaces/course";
 import { Plan } from "../Interfaces/plan";
 import { Semester } from "../Interfaces/semester";
-import { InsertSemesterModal } from "./InsertSemester";
 import { SemesterTable } from "./SemesterTable";
 //Funciton to display a plan on the screen
 export function DisplayPlan({
@@ -17,10 +16,7 @@ export function DisplayPlan({
 }): JSX.Element {
     const [show, setShow] = useState<boolean>(false);
 
-    const [visible, setVisible] = useState<boolean>(false);
-    const trueVisible = () => setVisible(true);
-    const falseVisible = () => setVisible(false);
-
+    const [visible] = useState<boolean>(false);
     function changeShow(): void {
         setShow(!visible);
     }
