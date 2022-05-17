@@ -24,7 +24,7 @@ export function InsertSemesterModal({
     return (
         <Modal show={showModal} onHide={closeModal} animation={false}>
             <Modal.Header closeButton>
-                <Modal.Title>Add Semester</Modal.Title>
+                <Modal.Title>Add a Semester</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form.Group controlId="formYear" as={Row}>

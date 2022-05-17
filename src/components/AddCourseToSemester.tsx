@@ -26,10 +26,11 @@ export function AddCoursetoSemester({
         name: "",
         descr: "",
         credits: "",
-        preReq: "",
+        preReq: [],
         restrict: "",
         breadth: "",
-        typ: ""
+        typ: "",
+        id: ""
     });
 
     //All the useStates that maps each element after the user looks up their class in the modal
@@ -137,8 +138,9 @@ export function AddCoursetoSemester({
     }
 
     function addCourse() {
-        //adds the new course to the proper semeste
+        //adds the new course to the proper semester
         courseAdder(newCourse, semesterID);
+        closeModal();
     }
     return (
         <div>
