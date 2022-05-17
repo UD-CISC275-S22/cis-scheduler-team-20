@@ -148,7 +148,7 @@ export function DisplayPlan({
                                     <InsertSemesterModal
                                         showModal={visible}
                                         closeModal={falseVisible}
-                                        plan={plan}
+                                        planName={plan.name}
                                         plans={plans}
                                         setPlans={setPlans}
                                     ></InsertSemesterModal>
