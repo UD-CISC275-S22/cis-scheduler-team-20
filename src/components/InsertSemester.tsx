@@ -6,34 +6,38 @@ import { Plan } from "../Interfaces/plan";
 export function InsertSemesterModal({
     showModal,
     closeModal,
-    plan,
+    planName,
     plans,
     setPlans
 }: {
     showModal: boolean;
     closeModal: () => void;
-    plan: Plan;
+    planName: string;
     plans: Plan[];
     setPlans: React.Dispatch<React.SetStateAction<Plan[]>>;
 }): JSX.Element {
     const [year, setYear] = useState<number>(2022);
     const [season, setSeason] = useState<string>("Fall");
-    function addSem(
-        yr: number,
-        seas: string,
-        plann: Plan,
-        planns: Plan[],
-        setPlanns: React.Dispatch<React.SetStateAction<Plan[]>>
-    ): void {
-        plann.semesters.splice(plann.semesters.length, 0, {
-            id: "1",
-            year: yr,
-            season: seas,
-            classes: [...plann.semesters[0].classes],
-            credits: 3
-        });
-        const ind = planns.findIndex((pln: Plan): boolean => pln === plann);
-        setPlanns(planns.splice(ind, 1, plann));
+    function addSem(yr: number, seas: string): void {
+        const ind = plans.findIndex(
+            (pln: Plan): boolean => pln.name === planName
+        );
+        const pln = plans[ind];
+        pln.semesters = [
+            ...pln.semesters,
+            {
+                id: "" + seas + yr,
+                year: yr,
+                season: seas,
+                classes: [...pln.semesters[0].classes],
+                credits: 3
+            }
+        ];
+        setPlans(
+            plans.map(
+                (plan: Plan): Plan => (plan.name === planName ? pln : plan)
+            )
+        );
     }
     return (
         <Modal show={showModal} onHide={closeModal} animation={false}>
@@ -84,7 +88,7 @@ export function InsertSemesterModal({
                 <Button
                     data-testid="saveSemesterButton"
                     variant="primarmy"
-                    onClick={() => addSem(year, season, plan, plans, setPlans)}
+                    onClick={() => addSem(year, season)}
                 >
                     Add Semester
                 </Button>

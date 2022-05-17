@@ -21,7 +21,7 @@ export function AddPlan({
             id: 0,
             semesters: [
                 {
-                    id: "0",
+                    id: "Fall2020",
                     season: "Fall",
                     year: 2020,
                     classes: [
