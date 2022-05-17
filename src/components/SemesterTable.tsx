@@ -89,7 +89,7 @@ export function SemesterTable({
                                     onClick={trueVisible}
                                     data-testid="addSemesterButton"
                                 >
-                                    Add Semester 1
+                                    Add Semester
                                 </Button>
                                 <InsertSemesterModal
                                     showModal={visible}

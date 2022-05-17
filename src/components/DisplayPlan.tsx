@@ -18,7 +18,6 @@ export function DisplayPlan({
     const [show, setShow] = useState<boolean>(false);
 
     const [visible, setVisible] = useState<boolean>(false);
-
     const trueVisible = () => setVisible(true);
     const falseVisible = () => setVisible(false);
 
@@ -139,19 +138,6 @@ export function DisplayPlan({
                             </Button>
                             {show && (
                                 <Col>
-                                    <Button
-                                        onClick={trueVisible}
-                                        data-testid="add_semester_button"
-                                    >
-                                        Add Semester 1
-                                    </Button>
-                                    <InsertSemesterModal
-                                        showModal={visible}
-                                        closeModal={falseVisible}
-                                        planName={plan.name}
-                                        plans={plans}
-                                        setPlans={setPlans}
-                                    ></InsertSemesterModal>
                                     <SemesterTable
                                         plan={plan}
                                         plans={plans}
