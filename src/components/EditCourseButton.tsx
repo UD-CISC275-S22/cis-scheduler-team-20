@@ -9,7 +9,7 @@ import { EditCourseModal } from "./EditCourseInModal";
 export interface EditButtonProp {
     semester: Semester;
     course: Course;
-    courseEditor: (newCourse: Course, semID: string) => void;
+    courseEditor: (courseID: string, newCourse: Course, semID: string) => void;
 }
 
 export function EditCourseButton({
