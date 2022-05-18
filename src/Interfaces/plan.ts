@@ -7,4 +7,6 @@ export interface Plan {
     semesters: Semester[];
     //The users name for the plan
     name: string;
+    //For Changing Visibility
+    vis: boolean;
 }

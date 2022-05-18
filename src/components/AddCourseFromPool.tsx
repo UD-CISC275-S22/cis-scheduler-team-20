@@ -68,7 +68,8 @@ export function AddCourseFromPool({
                     sem.id === semName
                         ? { ...sem, classes: [...sem.classes, clss] }
                         : sem
-            )
+            ),
+            vis: pln.vis
         };
         setPlans(
             plans.map(
