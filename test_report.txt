@@ -59,7 +59,7 @@ All files                  |       0 |        0 |       0 |       0 |
   AddCourseFromPool.tsx    |       0 |        0 |       0 |       0 | 23-104            
   AddCourseToSemester.tsx  |       0 |        0 |       0 |       0 | 21-115            
   AddPlan.tsx              |       0 |      100 |       0 |       0 | 15-79             
-  AddToCoursePool.tsx      |       0 |        0 |       0 |       0 | 18-170            
+  AddToCoursePool.tsx      |       0 |        0 |       0 |       0 | 18-171            
   ClearSemesterButton.tsx  |       0 |      100 |       0 |       0 | 16-21             
   CourseModal.tsx          |       0 |      100 |       0 |       0 | 21                
   CoursePoolModal.tsx      |       0 |      100 |       0 |       0 | 16-19             
@@ -76,5 +76,5 @@ All files                  |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        3.514 s
+Time:        3.885 s
 Ran all test suites.
