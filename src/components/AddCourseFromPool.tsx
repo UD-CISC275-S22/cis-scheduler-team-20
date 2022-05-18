@@ -10,13 +10,10 @@ type ChangeEvent = React.ChangeEvent<
 
 export function AddCourseFromPool({
     coursePool,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    setCoursePool,
     plans,
     setPlans
 }: {
     coursePool: Course[];
-    setCoursePool: React.Dispatch<React.SetStateAction<Course[]>>;
     plans: Plan[];
     setPlans: React.Dispatch<React.SetStateAction<Plan[]>>;
 }): JSX.Element {

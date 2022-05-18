@@ -62,7 +62,6 @@ function App(): JSX.Element {
                         plans={plans}
                         setPlans={setPlans}
                         coursePool={coursePool}
-                        setCoursePool={setCoursePool}
                     ></AddCourseFromPool>
                 </div>
                 <div>

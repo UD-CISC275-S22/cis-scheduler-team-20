@@ -34,7 +34,6 @@ export function AddToCoursePool({
     const [descrBox, setDescrBox] = useState<string>("");
     const [creditBox, setCreditBox] = useState<string>("");
     const [reqBox, setReqBox] = useState<string>("");
-    //const [reqsList, newPre] = useState<string[]>([]);
 
     function checkCodeField() {
         //checks if the input inside the code enter box is correct
