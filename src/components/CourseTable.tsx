@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { Col, Row, Table } from "react-bootstrap";
 import { Course } from "../Interfaces/course";
-//import { Plan } from "../Interfaces/plan";
 import { Semester } from "../Interfaces/semester";
 import { DeleteCourseButton } from "./DeleteCourseButton";
 import { EditCourseButton } from "./EditCourseButton";
-//import { MoveCourseButton } from "./MoveCourseButton";
 
 //Creates the course table inside the semesters
 export function CourseTable({

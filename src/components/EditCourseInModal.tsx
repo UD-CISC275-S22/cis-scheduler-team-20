@@ -3,7 +3,6 @@ import { Modal, ModalTitle } from "react-bootstrap";
 import { Course } from "../Interfaces/course";
 import { Semester } from "../Interfaces/semester";
 import { EditCourseInSemester } from "./EditCourseInSemester";
-//import { EditCourseInSemester } from "./EditCourseInSemester";
 
 //holds the modal and brings up the AddCourseToSemester UI in a modal window
 

@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import "./App.css";
-//import { AddCourseButton } from "./components/AddCourseButton";
-//import { AddSemester } from "./components/AddSemester";
-//import { AddFormSemester } from "./components/AddFormSemester";
 import { Plan } from "./Interfaces/plan";
 import { AddPlan } from "./components/AddPlan";
 import { Button } from "react-bootstrap";
@@ -10,10 +7,6 @@ import { DisplayPlan } from "./components/DisplayPlan";
 import { Course } from "./Interfaces/course";
 import { CoursePool } from "./components/CoursePoolModal";
 import { AddCourseFromPool } from "./components/AddCourseFromPool";
-//import { InsertSemesterModal } from "./components/InsertSemester";
-//import { SemesterTable } from "./components/SemesterTable";
-//import { origionalPlan } from "./Interfaces/origionalPlan";
-//import { Semester } from "./Interfaces/semester";
 
 function App(): JSX.Element {
     const [show, setShow] = useState<boolean>(false);
@@ -79,14 +72,12 @@ function App(): JSX.Element {
                         plan!
                     </p>
                 </div>
-                {/*<p className="semester_title">Fall (year) Semester</p>*/}
                 {visible && (
                     <DisplayPlan
                         plans={plans}
                         setPlans={setPlans}
                     ></DisplayPlan>
                 )}
-                {/*<AddSemester></AddSemester>*/}
                 <AddPlan close={dontShow} plan={addPlan} show={show}></AddPlan>
             </div>
         </>
