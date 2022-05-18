@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-undef */
 /* eslint-disable react/jsx-key */
-import React, { useState } from "react";
+import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { Course } from "../Interfaces/course";
 import { Plan } from "../Interfaces/plan";
@@ -15,12 +15,13 @@ export function DisplayPlan({
     plans: Plan[];
     setPlans: React.Dispatch<React.SetStateAction<Plan[]>>;
 }): JSX.Element {
-    //const [show, setShow] = useState<boolean>(false);
-
-    const [visible, setVisible] = useState<boolean>(false);
-
-    function changeShow(): void {
-        setVisible(!visible);
+    function changeShow(pln: Plan): void {
+        const newPln = { ...pln, vis: !pln.vis };
+        setPlans(
+            plans.map(
+                (plan: Plan): Plan => (plan.name === pln.name ? newPln : plan)
+            )
+        );
     }
 
     function clearSem(
@@ -160,11 +161,11 @@ export function DisplayPlan({
                             <h1>{plan.name}</h1>
                             <Button
                                 data-testid="ViewPlanButton"
-                                onClick={changeShow}
+                                onClick={() => changeShow(plan)}
                             >
                                 View Plan
                             </Button>
-                            {visible && (
+                            {plan.vis && (
                                 <Col>
                                     <SemesterTable
                                         plan={plan}

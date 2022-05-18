@@ -51,7 +51,8 @@ export function AddPlan({
                     ],
                     credits: 6
                 }
-            ]
+            ],
+            vis: false
         });
         close();
     }
