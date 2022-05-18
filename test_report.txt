@@ -69,12 +69,12 @@ All files                  |       0 |        0 |       0 |       0 |
   DisplayPlan.tsx          |       0 |        0 |       0 |       0 | 19-164            
   EditCourseButton.tsx     |       0 |      100 |       0 |       0 | 21-25             
   EditCourseInModal.tsx    |       0 |      100 |       0 |       0 | 22                
-  EditCourseInSemester.tsx |       0 |        0 |       0 |       0 | 25-210            
+  EditCourseInSemester.tsx |       0 |        0 |       0 |       0 | 25-193            
   InsertSemester.tsx       |       0 |        0 |       0 |       0 | 19-114            
   SemesterTable.tsx        |       0 |      100 |       0 |       0 | 44-58             
 ---------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        3.521 s
+Time:        4.399 s
 Ran all test suites.
