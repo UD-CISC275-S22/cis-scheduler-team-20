@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-no-undef */
-/* eslint-disable react/jsx-key */
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { Course } from "../Interfaces/course";
