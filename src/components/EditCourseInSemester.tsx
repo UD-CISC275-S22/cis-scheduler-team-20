@@ -63,19 +63,39 @@ export function EditCourseInSemester({
 
     function updateCode(event: ChangeEvent) {
         //updates the code fields in the new course
+        const newCode = {
+            ...newCourse,
+            code: event.target.value
+        };
+        updateCourse(newCode);
         changeCode(event.target.value);
     }
     function updateName(event: ChangeEvent) {
+        const newName = {
+            ...newCourse,
+            name: event.target.value
+        };
+        updateCourse(newName);
         changeName(event.target.value);
     }
 
     function updateCreds(event: ChangeEvent) {
         //updates the credits of the course to be added
+        const newCreds = {
+            ...newCourse,
+            credits: event.target.value
+        };
+        updateCourse(newCreds);
         changeCreds(event.target.value);
     }
 
     function updateReqs(event: ChangeEvent) {
         //updates the text in the prerequisite box
+        const newReqs = {
+            ...newCourse,
+            reqs: event.target.value
+        };
+        updateCourse(newReqs);
         changeReqs(event.target.value);
     }
 
