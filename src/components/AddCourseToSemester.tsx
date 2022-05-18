@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Course } from "../Interfaces/course";
-//import course_data from "../data/catalog.json";
 import { Button, Col, Form, Row } from "react-bootstrap";
 
 type ChangeEvent = React.ChangeEvent<
@@ -38,7 +37,6 @@ export function AddCoursetoSemester({
     const [descrBox, setDescrBox] = useState<string>("");
     const [creditBox, setCreditBox] = useState<string>("");
     const [reqBox, setReqBox] = useState<string>("");
-    //const [reqsList, newPre] = useState<string[]>([]);
 
     function checkCodeField() {
         //checks if the input inside the code enter box is correct
@@ -96,28 +94,6 @@ export function AddCoursetoSemester({
             setReqBox(event.target.value);
         }
     }
-
-    /*function remReq(courseName: string) {
-        //state setter for the course name
-        const rem = newCourse.preReq.filter(
-            (aCourse: string): boolean => aCourse !== courseName
-        );
-        const fixCourse = { ...newCourse, prereqs: [...rem] };
-        setNewCourse(fixCourse);
-        newPre([...rem]);
-    }
-
-    function isValidCode(): boolean {
-        //checks if the course code is a valid string for a course, i.e., CISC275
-        if (reqBox.length === 7) {
-            const dept = reqBox.substring(0, 4);
-            const code = reqBox.substring(4);
-            if (!specialCharacters.test(dept) && !isNaN(Number(code))) {
-                return true;
-            }
-        }
-        return false;
-    }*/
 
     function updateDescription(event: ChangeEvent) {
         //state setter for the course description
@@ -197,11 +173,7 @@ export function AddCoursetoSemester({
                     </Button>
                 </Col>
                 <Col>
-                    <Button
-                        //disabled={!checkCodeField()}
-                        onClick={addCourse}
-                        data-testid="saveCourseButton"
-                    >
+                    <Button onClick={addCourse} data-testid="saveCourseButton">
                         Add Course
                     </Button>
                     <div>{!checkCodeField() && <div></div>}</div>

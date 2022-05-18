@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { Course } from "../Interfaces/course";
 import { Button, Col, Form, Row } from "react-bootstrap";
-//import { Semester } from "../interfaces/semester";
-//import { Plan } from "../interfaces/plan";
 
 //fix issue with swappin plans not fixing the selected
 
@@ -27,15 +25,6 @@ export function EditCourseInSemester({
     const specialChars = /[ `!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?~1234567890]/;
     const [reqsList, newReq] = useState<string[]>([...course.preReq]);
 
-    //list of prerequisites to be added in the new course
-    /*const [reqsList, newPre] = useState<string[]>([...course.prereqs]);
-    const [postreqsList, newPost] = useState<string[]>([
-        ...course.prereqsFilled
-    ]);
-    const [degreeReqsList, newDeg] = useState<string[]>([
-        ...course.degreeReqsFilled
-    ]);*/
-
     //state holding the new course to be added
     const [newCourse, updateCourse] = useState<Course>({
         code: course.code,
@@ -46,10 +35,6 @@ export function EditCourseInSemester({
         restrict: course.restrict,
         breadth: course.breadth,
         typ: course.typ
-        // added these for later tweaking when the basic stuff is all good
-        //prereqsFilled: [...course.prereqsFilled],
-        //degreeReqsFilled: [...course.degreeReqsFilled],
-        //originalData: course.originalData,
     });
 
     //states holding the values in each of the boxes
