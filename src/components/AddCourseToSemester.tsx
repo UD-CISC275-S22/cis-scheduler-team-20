@@ -29,8 +29,7 @@ export function AddCoursetoSemester({
         preReq: [],
         restrict: "",
         breadth: "",
-        typ: "",
-        id: ""
+        typ: ""
     });
 
     //All the useStates that maps each element after the user looks up their class in the modal

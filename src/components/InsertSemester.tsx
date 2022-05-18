@@ -38,6 +38,7 @@ export function InsertSemesterModal({
                 (plan: Plan): Plan => (plan.name === planName ? pln : plan)
             )
         );
+        closeModal();
     }
     return (
         <Modal show={showModal} onHide={closeModal} animation={false}>

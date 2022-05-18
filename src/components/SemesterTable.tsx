@@ -30,7 +30,7 @@ export function SemesterTable({
     courseAdder: (newCourse: Course, semID: string) => void;
     delCourseFunct: (code: string, semID: string) => void;
     editCourseFunct: (
-        oldCourse: Course,
+        courseID: string,
         newCourse: Course,
         semID: string
     ) => void;

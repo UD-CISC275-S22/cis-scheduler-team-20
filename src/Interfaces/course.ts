@@ -9,5 +9,4 @@ export interface Course {
     restrict: string;
     breadth: string;
     typ: string;
-    id: string;
 }

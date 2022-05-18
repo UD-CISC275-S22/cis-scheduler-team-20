@@ -41,7 +41,6 @@ export function EditCourseInSemester({
         code: course.code,
         credits: course.credits,
         descr: course.descr,
-        id: course.id,
         name: course.name,
         preReq: course.preReq,
         restrict: course.restrict,
@@ -64,9 +63,7 @@ export function EditCourseInSemester({
 
     function updateCode(event: ChangeEvent) {
         //updates the code fields in the new course
-        if (event.target.value.length === 7) {
-            changeCode(event.target.value);
-        }
+        changeCode(event.target.value);
     }
     function updateName(event: ChangeEvent) {
         changeName(event.target.value);
@@ -137,7 +134,7 @@ export function EditCourseInSemester({
     }
 
     function addCourse() {
-        courseEditor(course.id, newCourse, semID);
+        courseEditor(course.code, newCourse, semID);
         closeModal();
     }
 
@@ -147,7 +144,7 @@ export function EditCourseInSemester({
                 <Col>
                     <Form.Group>
                         <Form.Label>
-                            Course Department Here (i.e., CISC181, CISC220):
+                            Change Course Code (i.e., CISC181, CISC220):
                         </Form.Label>
                         <Form.Control
                             type="text"
@@ -157,10 +154,7 @@ export function EditCourseInSemester({
                         />
                     </Form.Group>
                     <Form.Group>
-                        <Form.Label>
-                            Course Name Here (i.e., Intro to Software
-                            Engineering):
-                        </Form.Label>
+                        <Form.Label>Change Course Name</Form.Label>
                         <Form.Control
                             type="text"
                             placeholder="Enter Course Name"
