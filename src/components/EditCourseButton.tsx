@@ -6,10 +6,10 @@ import { EditCourseModal } from "./EditCourseInModal";
 
 //This handles the buttons to add a course to any given semester of the active course(or so I beleive, little bug happening)
 
-interface EditButtonProp {
+export interface EditButtonProp {
     semester: Semester;
     course: Course;
-    courseEditor: (oldCourse: Course, newCourse: Course, semID: string) => void;
+    courseEditor: (courseID: string, newCourse: Course, semID: string) => void;
 }
 
 export function EditCourseButton({

@@ -26,7 +26,7 @@ export function AddCoursetoSemester({
         name: "",
         descr: "",
         credits: "",
-        preReq: "",
+        preReq: [],
         restrict: "",
         breadth: "",
         typ: ""
@@ -132,8 +132,9 @@ export function AddCoursetoSemester({
     }
 
     function addCourse() {
-        //adds the new course to the proper semeste
+        //adds the new course to the proper semester
         courseAdder(newCourse, semesterID);
+        closeModal();
     }
     return (
         <div>

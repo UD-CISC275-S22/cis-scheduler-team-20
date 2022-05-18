@@ -22,7 +22,7 @@ export function AddToCoursePool({
         name: "",
         descr: "",
         credits: "",
-        preReq: "",
+        preReq: [],
         restrict: "",
         breadth: "",
         typ: ""

@@ -6,20 +6,28 @@ import { Course } from "../Interfaces/course";
 import { Plan } from "../Interfaces/plan";
 import { Semester } from "../Interfaces/semester";
 import { SemesterTable } from "./SemesterTable";
+
 //Funciton to display a plan on the screen
 export function DisplayPlan({
     plans,
     setPlans
-}: {
+}: //editPlan,
+//deletePlan
+{
     plans: Plan[];
     setPlans: React.Dispatch<React.SetStateAction<Plan[]>>;
+    //editPlan: (name: string, newPlan: Plan) => void;
+    //deletePlan: (name: string) => void;
 }): JSX.Element {
     const [show, setShow] = useState<boolean>(false);
 
     const [visible] = useState<boolean>(false);
+
     function changeShow(): void {
         setShow(!visible);
     }
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     function clearSem(
         planName: string,
         semYear: number,
@@ -36,6 +44,7 @@ export function DisplayPlan({
         pln.semesters[inde].classes = [];
         setPlans(plans.splice(ind, 1, pln));
     }
+
     function deleteSemester(semesterId: string): void {
         const ind = plans.findIndex(
             (plan: Plan): boolean =>
@@ -88,12 +97,40 @@ export function DisplayPlan({
         setPlans(plans.splice(ind, 1, pln));
     }
     function editCourseFunct(
-        oldCourse: Course,
+        courseID: string,
         newCourse: Course,
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         semID: string
     ): void {
-        oldCourse = newCourse;
+        const ind = plans.findIndex(
+            (plan: Plan): boolean =>
+                plan.semesters.findIndex(
+                    (sem: Semester): boolean => sem.id === semID
+                ) !== -1
+        );
+        const pln = plans[ind];
+        const inde = pln.semesters.findIndex(
+            (sem: Semester): boolean => sem.id === semID
+        );
+        const sm = pln.semesters[inde];
+        const nsm = {
+            ...sm,
+            classes: sm.classes.map(
+                (cours: Course): Course =>
+                    cours.code === courseID ? newCourse : cours
+            )
+        };
+        const newEdit = {
+            ...pln,
+            semesters: pln.semesters.map(
+                (semestr: Semester): Semester =>
+                    semestr.id === semID ? nsm : semestr
+            )
+        };
+        setPlans(
+            plans.map(
+                (plan: Plan): Plan => (plan.name === pln.name ? newEdit : plan)
+            )
+        );
     }
     function moveCourse(
         courseToMove: Course,

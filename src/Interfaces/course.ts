@@ -5,7 +5,7 @@ export interface Course {
     name: string;
     descr: string;
     credits: string;
-    preReq: string;
+    preReq: string[];
     restrict: string;
     breadth: string;
     typ: string;
