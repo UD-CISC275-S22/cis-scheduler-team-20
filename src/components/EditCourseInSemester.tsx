@@ -205,11 +205,6 @@ export function EditCourseInSemester({
                             onChange={updateFillsDeg}
                         />
                     </Form.Group>
-                </Col>
-            </Row>
-            <hr />
-            <Row>
-                <Col>
                     <Form.Group>
                         <Form.Label>Enter Postrequisites Here:</Form.Label>
                         <Form.Control
@@ -221,6 +216,7 @@ export function EditCourseInSemester({
                     </Form.Group>
                 </Col>
             </Row>
+            <hr />
             <hr />
             <Row>
                 <Col>
