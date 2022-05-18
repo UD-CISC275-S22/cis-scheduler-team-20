@@ -1,5 +1,4 @@
-/* eslint-disable react/react-in-jsx-scope */
-import { useState } from "react";
+import React, { useState } from "react";
 import { Form, Modal, Row, Button, Col } from "react-bootstrap";
 import { Plan } from "../Interfaces/plan";
 

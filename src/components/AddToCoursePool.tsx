@@ -173,11 +173,7 @@ export function AddToCoursePool({
                     </Button>
                 </Col>
                 <Col>
-                    <Button
-                        //disabled={!checkCodeField()}
-                        onClick={addCourse}
-                        data-testid="saveCourseButton"
-                    >
+                    <Button onClick={addCourse} data-testid="saveCourseButton">
                         Add Course
                     </Button>
                     <div>{!checkCodeField() && <div></div>}</div>

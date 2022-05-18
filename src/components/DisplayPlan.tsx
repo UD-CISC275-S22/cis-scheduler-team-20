@@ -11,13 +11,9 @@ import { SemesterTable } from "./SemesterTable";
 export function DisplayPlan({
     plans,
     setPlans
-}: //editPlan,
-//deletePlan
-{
+}: {
     plans: Plan[];
     setPlans: React.Dispatch<React.SetStateAction<Plan[]>>;
-    //editPlan: (name: string, newPlan: Plan) => void;
-    //deletePlan: (name: string) => void;
 }): JSX.Element {
     const [show, setShow] = useState<boolean>(false);
 
@@ -27,7 +23,6 @@ export function DisplayPlan({
         setShow(!visible);
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     function clearSem(
         planName: string,
         semYear: number,

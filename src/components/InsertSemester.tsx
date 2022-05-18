@@ -110,7 +110,7 @@ export function InsertSemesterModal({
                 </Button>
                 <Button
                     data-testid="saveSemesterButton"
-                    variant="primarmy"
+                    variant="primary"
                     onClick={() => addSem(year, season)}
                 >
                     Add Semester
