@@ -115,17 +115,6 @@ export function EditCourseInSemester({
         newReq([...rem]);
     }
 
-    function isValidCode(aCode: string): boolean {
-        //checks if the course code is a valid string for a course, i.e., CISC275
-        if (aCode.length === 7) {
-            const code = aCode.substring(0, 7);
-            if (!specialChars.test(code)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     function updateDesc(event: ChangeEvent) {
         //state setter for the course description
         if (event.target.value !== "") {
@@ -148,39 +137,37 @@ export function EditCourseInSemester({
             <Row>
                 <Col>
                     <Form.Group>
-                        <Form.Label>
-                            Change Course Code (i.e., CISC181, CISC220):
-                        </Form.Label>
+                        <Form.Label>Change Course Code Here:</Form.Label>
                         <Form.Control
                             type="text"
-                            placeholder="Enter Department Code"
+                            placeholder="Course Code"
                             value={codeBox}
                             onChange={updateCode}
                         />
                     </Form.Group>
                     <Form.Group>
-                        <Form.Label>Change Course Name</Form.Label>
+                        <Form.Label>Change Course Name Here:</Form.Label>
                         <Form.Control
                             type="text"
-                            placeholder="Enter Course Name"
+                            placeholder="Course Name"
                             value={nameBox}
                             onChange={updateName}
                         />
                     </Form.Group>
                     <Form.Group>
-                        <Form.Label>Course Credits here:</Form.Label>
+                        <Form.Label>Change Course Credits here:</Form.Label>
                         <Form.Control
                             type="text"
-                            placeholder="Enter Number of Credits"
+                            placeholder="Number of Credits"
                             value={credsBox}
                             onChange={updateCreds}
                         />
                     </Form.Group>
                     <Form.Group>
-                        <Form.Label>Course Description here:</Form.Label>
+                        <Form.Label>Change Course Description here:</Form.Label>
                         <Form.Control
                             type="text"
-                            placeholder="Enter Course Description"
+                            placeholder="Course Description"
                             value={descBox}
                             onChange={updateDesc}
                         />
@@ -188,19 +175,15 @@ export function EditCourseInSemester({
                 </Col>
                 <Col>
                     <Form.Group>
-                        <Form.Label>
-                            Enter Prerequisites Here: (i.e., CISC181, CISC220)
-                        </Form.Label>
+                        <Form.Label>Enter Prerequisites Here:</Form.Label>
                         <Form.Control
                             type="text"
-                            placeholder="Enter Prerequisite Here"
+                            placeholder="Prerequisite Here"
                             value={reqsBox}
                             onChange={updateReqs}
                         />
                     </Form.Group>
-                    <Button disabled={!isValidCode(reqsBox)} onClick={addReq}>
-                        Add This Prerequisite
-                    </Button>
+                    <Button onClick={addReq}>Add This Prerequisite</Button>
                     {reqsList.map(
                         (aReq: string): JSX.Element => (
                             <li key={aReq} style={{ margin: "5px" }}>
@@ -213,39 +196,27 @@ export function EditCourseInSemester({
                             </li>
                         )
                     )}
-                </Col>
-            </Row>
-            <hr />
-            <Row>
-                <Col>
                     <Form.Group>
-                        <Form.Label>
-                            Enter Degree Requirement Here: (i.e., Group A
-                            Breadth, Tech Elective, etc.)
-                        </Form.Label>
+                        <Form.Label>Enter Degree Requirement Here:</Form.Label>
                         <Form.Control
                             type="text"
-                            placeholder="Enter Degree Requirement Here"
+                            placeholder="Degree Requirement"
                             value={fillsDegBox}
                             onChange={updateFillsDeg}
                         />
                     </Form.Group>
-                </Col>
-                <Col>
                     <Form.Group>
-                        <Form.Label>
-                            Enter Postrequisites Here: (i.e., CISC181 For
-                            CISC106)
-                        </Form.Label>
+                        <Form.Label>Enter Postrequisites Here:</Form.Label>
                         <Form.Control
                             type="text"
-                            placeholder="Enter Postrequisite Here"
+                            placeholder="Postrequisites"
                             value={fillsReqsBox}
                             onChange={updateFillsReqs}
                         />
                     </Form.Group>
                 </Col>
             </Row>
+            <hr />
             <hr />
             <Row>
                 <Col>
