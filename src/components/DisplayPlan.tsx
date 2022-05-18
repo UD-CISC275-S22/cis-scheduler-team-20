@@ -15,12 +15,12 @@ export function DisplayPlan({
     plans: Plan[];
     setPlans: React.Dispatch<React.SetStateAction<Plan[]>>;
 }): JSX.Element {
-    const [show, setShow] = useState<boolean>(false);
+    //const [show, setShow] = useState<boolean>(false);
 
-    const [visible] = useState<boolean>(false);
+    const [visible, setVisible] = useState<boolean>(false);
 
     function changeShow(): void {
-        setShow(!visible);
+        setVisible(!visible);
     }
 
     function clearSem(
@@ -164,7 +164,7 @@ export function DisplayPlan({
                             >
                                 View Plan
                             </Button>
-                            {show && (
+                            {visible && (
                                 <Col>
                                     <SemesterTable
                                         plan={plan}
