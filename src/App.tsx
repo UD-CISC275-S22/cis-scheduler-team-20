@@ -46,10 +46,9 @@ function App(): JSX.Element {
                 <div>
                     <p className="introduction">
                         Here you will be able to create a custom degree plan for
-                        yourself. Press Edit Semester to add the classes you are
-                        currently in or have previously taken, and then press
-                        add semester to get started creating your full degree
-                        plan!
+                        yourself. Press the Create Plan Button to add a new plan
+                        and start forming your degree plan. Now all that is left
+                        is for you to get started!
                     </p>
                 </div>
                 <div>
