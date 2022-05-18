@@ -44,6 +44,15 @@ function App(): JSX.Element {
                     </header>
                 </div>
                 <div>
+                    <p className="introduction">
+                        Here you will be able to create a custom degree plan for
+                        yourself. Press Edit Semester to add the classes you are
+                        currently in or have previously taken, and then press
+                        add semester to get started creating your full degree
+                        plan!
+                    </p>
+                </div>
+                <div>
                     <CoursePool
                         closeModal={falseVisible}
                         coursePool={coursePool}
@@ -64,13 +73,6 @@ function App(): JSX.Element {
                     >
                         Create Plan
                     </Button>
-                    <p className="introduction">
-                        Here you will be able to create a custom degree plan for
-                        yourself. Press Edit Semester to add the classes you are
-                        currently in or have previously taken, and then press
-                        add semester to get started creating your full degree
-                        plan!
-                    </p>
                 </div>
                 {visible && (
                     <DisplayPlan
