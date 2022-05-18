@@ -254,7 +254,7 @@ export function EditCourseInSemester({
                     </Button>
                 </Col>
                 <Col>
-                    <Button onClick={addCourse}>Save Edits</Button>
+                    <Button onClick={addCourse}>Save</Button>
                 </Col>
                 <Col>
                     <Button data-testid="resetToDefault">
