@@ -26,6 +26,16 @@ export function EditCourseInSemester({
     const [reqsList, newReq] = useState<string[]>([...course.preReq]);
 
     //state holding the new course to be added
+    const oldCourse = {
+        code: course.code,
+        credits: course.credits,
+        descr: course.descr,
+        name: course.name,
+        preReq: course.preReq,
+        restrict: course.restrict,
+        breadth: course.breadth,
+        typ: course.typ
+    };
     const [newCourse, updateCourse] = useState<Course>({
         code: course.code,
         credits: course.credits,
@@ -127,6 +137,13 @@ export function EditCourseInSemester({
         changeDesc(event.target.value);
     }
 
+    function resetCourse() {
+        updateCourse(oldCourse);
+        changeCode(oldCourse.code);
+        changeName(oldCourse.name);
+        changeCreds(oldCourse.credits);
+        changeDesc(oldCourse.descr);
+    }
     function addCourse() {
         courseEditor(course.code, newCourse, semID);
         closeModal();
@@ -228,8 +245,8 @@ export function EditCourseInSemester({
                     <Button onClick={addCourse}>Save</Button>
                 </Col>
                 <Col>
-                    <Button data-testid="resetToDefault">
-                        Reset To Original(TBA)
+                    <Button onClick={resetCourse} data-testid="resetToDefault">
+                        Reset To Original
                     </Button>
                 </Col>
             </Row>
