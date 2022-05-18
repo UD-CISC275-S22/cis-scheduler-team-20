@@ -108,6 +108,7 @@ export function AddToCoursePool({
     function addCourse() {
         //adds the new course to the proper semeste
         setCoursePool([...coursePool, newCourse]);
+        closeModal(false);
     }
     return (
         <div>
